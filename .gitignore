@@ -1,0 +1,31 @@
+# Local secrets - keep real keys out of tracked files
+.env
+.env.local
+.env.*.local
+
+# Node
+node_modules/
+
+# Reverse-engineering scratch space (APK extraction, strings dumps)
+/work/
+
+# Local project store: .nov documents written by the server
+/data/projects/*
+!/data/projects/.gitkeep
+
+# Throwaway data used while verifying
+/.demo-data/
+
+# Local server logs
+/.logs/
+
+# Android build toolchain and outputs
+/.toolchain/
+/Android/.gradle/
+/Android/build/
+/Android/app/build/
+/Android/local.properties
+/Android/.idea/
+
+# Reference APK used while comparing behaviour (not redistributed)
+/Novelist.apks
