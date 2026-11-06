@@ -1,5 +1,18 @@
 # Novelist RE
 
+## What is in this repository
+
+Two different things — they are not the same app:
+
+| Folder | What it is |
+|---|---|
+| [`original/`](original/README.md) | **The real Novelist app** (2026.1.19), packaged as its untouched split APK set, plus every file inside it extracted. This is the actual product; install it and it behaves exactly like the original. |
+| [`public/`](public), [`shared/`](shared), `server.mjs`, [`Android/`](Android) | A **separate reimplementation** of Novelist's behaviour (web app + Android WebView shell), written from scratch. It resembles the original but is not the original, and it is not built from it. |
+
+The rest of this file describes the reimplementation. [REPORT.md](REPORT.md) holds the reverse-engineering notes it was based on.
+
+## The reimplementation
+
 A working reimplementation of the **Novelist** novel-writing app, reconstructed from `Novelist.apks` (version 2026.1.19) and its `.nov` v4 project format. It ships as a **web app** (Node server + browser SPA, no npm dependencies) and as a **native Android APK** that runs the same workspace fully offline.
 
 - **Bookshelf** of projects stored as `.nov` files on disk

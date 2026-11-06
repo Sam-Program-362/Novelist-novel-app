@@ -1,0 +1,46 @@
+[
+  {
+    "question": "Was tun, wenn ich keine Antwort auf meine Frage finde?",
+    "answer": "Wenn du in den FAQs nicht fündig wirst, <a href='mailto:info@novelist.app'>kontaktiere uns direkt</a>!"
+  },
+  {
+    "question": "Wie logge ich mich ein? Synchronisieren sich Inhalte automatisch?",
+    "answer": "<p>Leider bietet Novelist keine automatische Cloud-Synchronisation an, da dies für eine kostenlose App zu teuer wäre.</p><p>So überträgst du deine Arbeit:</p><ol><li>Nutze <b>An Cloud senden</b> und <b>Aus Cloud empfangen</b> für manuelle Projekt-Synchronisation.</li><li>Erstelle ein Backup und stelle es wieder her.</li></ol>"
+  },
+  {
+    "question": "Wie kann ich mein Buch drucken oder veröffentlichen?",
+    "answer": "<p>Nutze <b>Exportieren und teilen</b> (innerhalb eines spezifischen Buchs) in diesen Formaten:</p><ul><li><b>EPUB</b></li><li><b>ODT</b></li><li><b>HTML</b></ul><p>Danach kannst du die Datei nach Belieben verwenden.</p>"
+  },
+  {
+    "question": "Ich habe mein Projekt oder Buch gelöscht. Kann ich es wiederherstellen?",
+    "answer": "<p>Novelist speichert Daten nur offline auf deinem Gerät. Ohne Backup ist eine Wiederherstellung leider unmöglich, da wir keinen Zugriff auf deine Daten haben.</p>"
+  },
+  {
+    "question": "Kann ich Bilder in den Text einfügen?",
+    "answer": "<p>Bilder dienen nur als Referenz und werden nicht ins Manuskript exportiert. Wir planen dies aber für die Zukunft!</p>"
+  },
+  {
+    "question": "Veröffentlicht ihr Romane? Werde ich bezahlt?",
+    "answer": "<p>Novelist ist ein Schreibwerkzeug, keine Veröffentlichungsplattform.</p>"
+  },
+  {
+    "question": "Warum gibt es die App nicht in meiner Sprache?",
+    "answer": "<p>Aktuell verfügbar in: Englisch, Arabisch, Bengalisch, Chinesisch, Französisch, Deutsch, Hindi, Indonesisch, Italienisch, Japanisch, Portugiesisch, Russisch und Spanisch.</p>"
+  },
+  {
+    "question": "Kann ich alle Kategorien gleichzeitig exportieren?",
+    "answer": "<p>Das wird derzeit leider nicht unterstützt. Wir arbeiten daran.</p>"
+  },
+  {
+    "question": "Kann ich eine Buchreihe erstellen?",
+    "answer": "<p>Ja, absolut! Ein Projekt fungiert als Universum für mehrere Bücher.</p><p>Da sie im selben Projekt sind, teilen alle Bücher dieselben Handlungselemente und Szenen. Erstelle einfach ein Projekt, baue die Welt unter <b>Handlung</b>, schreibe unter <b>Schreiben</b> und erstelle dann mehrere Bücher.</p>"
+  },
+  {
+    "question": "Kann ich Projekte importieren?",
+    "answer": "<p>Aktuell geht das nur über Kopieren und Einfügen.</p>"
+  },
+  {
+    "question": "Wie kann ich unterstützen? Nehmt ihr Spenden an?",
+    "answer": "<p>Spenden sind laut Google/Apple-Richtlinien nicht erlaubt. Empfiehl uns einfach weiter!</p>"
+  }
+]
