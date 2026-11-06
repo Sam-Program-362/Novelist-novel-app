@@ -27,5 +27,3 @@ node_modules/
 /Android/local.properties
 /Android/.idea/
 
-# Reference APK used while comparing behaviour (not redistributed)
-/Novelist.apks

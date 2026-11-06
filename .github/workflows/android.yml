@@ -27,13 +27,8 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      # The ubuntu-latest image already ships the Android SDK with licenses
-      # accepted. android-actions/setup-android is not used: it installs the
-      # legacy "tools" package, which Google removed, so it fails outright.
-      - name: Check Android SDK
-        run: |
-          echo "ANDROID_HOME=$ANDROID_HOME"
-          ls "$ANDROID_HOME/platforms" "$ANDROID_HOME/build-tools"
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
 
       - name: Build debug APK
         working-directory: Android
