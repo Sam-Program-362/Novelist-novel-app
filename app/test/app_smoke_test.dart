@@ -112,8 +112,9 @@ void main() {
     expect(find.text(S.books), findsWidgets);
     expect(find.text('Book 1'), findsWidgets);
 
-    // Back to the library without losing the project.
-    await tester.pageBack();
+    // Back to the library without losing the project. The shell shows a drawer button rather than a
+    // back arrow, so pop the route directly instead of using `pageBack`.
+    Navigator.of(tester.element(find.byType(ProjectScreen))).pop();
     await settle(tester);
     expect(find.text(S.library), findsOneWidget);
     expect(find.text('Seeded novel'), findsOneWidget);
