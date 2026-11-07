@@ -7,7 +7,6 @@ import 'package:novelist/data/dao/plot_dao.dart';
 import 'package:novelist/data/dao/projects_dao.dart';
 import 'package:novelist/data/repositories/project_repository.dart';
 import 'package:novelist/data/templates/template_service.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:novelist/data/db/database.dart';
 import 'package:novelist/models/entities.dart';
 import 'package:novelist/state/app_settings.dart';
@@ -124,8 +123,35 @@ void main() {
   });
 
   testWidgets('the drawer switches between every workspace module', (tester) async {
-    final template = TemplateService.parse(
-      await rootBundle.loadString('assets/template_standard_novel.json'),
+    // Built in memory: reading the asset bundle from a test body needs `runAsync`, and this test is
+    // about the shell, not about template parsing.
+    const template = TemplateData(
+      statuses: [TemplateStatus(code: '1', title: 'To do', colour: 0xFFD6E0D1, ranking: 1)],
+      categories: [
+        TemplateCategory(
+          code: '3',
+          title: 'Characters',
+          colour: 0xFFB5A19C,
+          ranking: 1,
+          groups: [
+            TemplateMetadataGroup(
+              code: 'GENERAL',
+              title: 'General',
+              ranking: 1,
+              elements: [
+                TemplateMetadataElement(code: 'NAME', title: 'Name', ranking: 1, isRelevant: true),
+              ],
+            ),
+          ],
+        ),
+        TemplateCategory(
+          code: '4',
+          title: 'Locations',
+          colour: 0xFFC7B0A9,
+          ranking: 2,
+          groups: [],
+        ),
+      ],
     );
     ProjectRepository(db).createFromTemplate(title: 'Module walk', template: template);
 
