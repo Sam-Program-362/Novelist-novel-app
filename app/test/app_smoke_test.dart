@@ -8,6 +8,7 @@ import 'package:novelist/data/dao/projects_dao.dart';
 import 'package:novelist/data/db/database.dart';
 import 'package:novelist/models/entities.dart';
 import 'package:novelist/state/app_settings.dart';
+import 'package:novelist/ui/shell/project_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Boots the real application widget tree against an in-memory database.
@@ -95,6 +96,17 @@ void main() {
 
     await tester.tap(find.text('Seeded novel'));
     await settle(tester);
+
+    final visibleTexts = tester
+        .widgetList<Text>(find.byType(Text))
+        .map((text) => text.data)
+        .whereType<String>()
+        .toList(growable: false);
+    expect(
+      find.byType(ProjectScreen),
+      findsOneWidget,
+      reason: 'the project route should be on screen; visible texts: $visibleTexts',
+    );
 
     // Project shell: module title in the app bar and the book that belongs to the project.
     expect(find.text(S.books), findsWidgets);
