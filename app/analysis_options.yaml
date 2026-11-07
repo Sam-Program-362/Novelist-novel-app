@@ -16,7 +16,6 @@ linter:
     unnecessary_this: false
     library_private_types_in_public_api: false
     sort_child_properties_last: false
-    deprecated_member_use: false
     unnecessary_to_list_in_spreads: false
     use_super_parameters: false
     depend_on_referenced_packages: false

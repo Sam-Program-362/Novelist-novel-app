@@ -161,7 +161,7 @@ class BooksTab extends StatelessWidget {
                           ),
                           const SizedBox(height: 2),
                           Text(
-                            '${words} ${S.words}',
+                            '$words ${S.words}',
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                           if (book.dueDate != null)

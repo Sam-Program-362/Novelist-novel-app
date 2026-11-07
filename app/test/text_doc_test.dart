@@ -51,7 +51,7 @@ void main() {
     });
 
     test('editable round trip preserves mentions and positions', () {
-      final block = const TextBlock(
+      const block = TextBlock(
         text: 'Tom met \uFFFC at the harbour.',
         embeds: [TextEmbed(position: 8, code: 'c0ffee11', value: 'Irene')],
       );
@@ -86,7 +86,7 @@ void main() {
     });
 
     test('realign follows surviving object replacement characters', () {
-      final block = const TextBlock(
+      const block = TextBlock(
         text: '\uFFFC and \uFFFC',
         embeds: [
           TextEmbed(position: 0, code: 'a', value: 'A'),

@@ -104,9 +104,10 @@ class OrganizeScreen extends StatelessWidget {
       Material(
         color: theme.colorScheme.surfaceContainerLow,
         child: InkWell(
-          onTap: () => controller.sectionsDao.toggleExpanded(section.id, !section.isExpanded).let(
-                (_) => controller.reload(),
-              ),
+          onTap: () {
+            controller.sectionsDao.toggleExpanded(section.id, !section.isExpanded);
+            controller.reload();
+          },
           child: Padding(
             padding: EdgeInsets.fromLTRB(8.0 + depth * 16, 6, 8, 6),
             child: Row(
@@ -409,8 +410,4 @@ class OrganizeScreen extends StatelessWidget {
       controller.reload();
     }
   }
-}
-
-extension _Let<T> on T {
-  R let<R>(R Function(T) action) => action(this);
 }

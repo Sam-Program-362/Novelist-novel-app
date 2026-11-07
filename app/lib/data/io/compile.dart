@@ -102,8 +102,6 @@ CompiledBook buildCompiledBook({
   required Map<String, String> mentionValues,
   CompileOptions options = const CompileOptions(format: CompileFormat.html),
 }) {
-  String renderText(String? raw) => TextDoc.fromJsonString(raw).plainText;
-
   final chapters = <CompiledChapter>[];
   for (final entry in entries) {
     if (!options.includeSections) break;
@@ -324,7 +322,7 @@ ${[for (var i = 0; i < book.chapters.length; i++) '''    <navPoint id="np${i + 1
   </navMap>
 </ncx>''');
 
-    final encoded = ZipEncoder().encode(archive);
+    final encoded = ZipEncoder().encode(archive) ?? const <int>[];
     return CompiledDocument(
       fileName: '${_safeFileName(book.title)}.epub',
       bytes: Uint8List.fromList(encoded),
@@ -431,7 +429,7 @@ ${body.toString()}
   </office:body>
 </office:document-content>''');
 
-    final encoded = ZipEncoder().encode(archive);
+    final encoded = ZipEncoder().encode(archive) ?? const <int>[];
     return CompiledDocument(
       fileName: '${_safeFileName(book.title)}.odt',
       bytes: Uint8List.fromList(encoded),

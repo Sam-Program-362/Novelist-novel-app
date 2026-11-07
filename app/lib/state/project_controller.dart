@@ -1,4 +1,5 @@
-import 'package:flutter/foundation.dart';
+// `flutter/foundation` also exports a `Category` annotation, which would collide with the model.
+import 'package:flutter/foundation.dart' hide Category;
 
 import '../core/utils/text_doc.dart';
 import '../data/dao/books_dao.dart';

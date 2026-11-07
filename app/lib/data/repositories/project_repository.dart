@@ -50,10 +50,11 @@ class ProjectRepository {
         );
         statusIds[status.code] = created.id;
       }
-      // Statuses are created above; fall back to a fresh one for degenerate templates.
-      final fallbackStatusId = statusIds.values.isEmpty
-          ? plot.addStatus(projectId: project.id, title: 'To do', colour: 0xFFD6E0D1).id
-          : statusIds.values.first;
+      // Every template defines at least one status, but a degenerate file must still leave the
+      // project usable, so one is created when the list is empty.
+      if (statusIds.isEmpty) {
+        plot.addStatus(projectId: project.id, title: 'To do', colour: 0xFFD6E0D1);
+      }
 
       for (final category in template.categories) {
         final createdCategory = plot.createCategory(
