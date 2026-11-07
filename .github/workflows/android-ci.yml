@@ -106,8 +106,11 @@ jobs:
             for name in version analyze test build; do
               if [ -s "/tmp/$name.log" ]; then
                 echo
-                echo "### $name"
-                tail -c 40000 "/tmp/$name.log" | sed 's/`/'"'"'/g'
+                echo "### $name (start)"
+                head -c 12000 "/tmp/$name.log" | sed 's/`/'"'"'/g'
+                echo
+                echo "### $name (end)"
+                tail -c 12000 "/tmp/$name.log" | sed 's/`/'"'"'/g'
               fi
             done
           } > "$body"
