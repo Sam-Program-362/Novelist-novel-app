@@ -5,6 +5,9 @@ import 'package:novelist/core/l10n/strings.dart';
 import 'package:novelist/data/dao/books_dao.dart';
 import 'package:novelist/data/dao/plot_dao.dart';
 import 'package:novelist/data/dao/projects_dao.dart';
+import 'package:novelist/data/repositories/project_repository.dart';
+import 'package:novelist/data/templates/template_service.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:novelist/data/db/database.dart';
 import 'package:novelist/models/entities.dart';
 import 'package:novelist/state/app_settings.dart';
@@ -118,6 +121,43 @@ void main() {
     await settle(tester);
     expect(find.text(S.library), findsOneWidget);
     expect(find.text('Seeded novel'), findsOneWidget);
+  });
+
+  testWidgets('the drawer switches between every workspace module', (tester) async {
+    final template = TemplateService.parse(
+      await rootBundle.loadString('assets/template_standard_novel.json'),
+    );
+    ProjectRepository(db).createFromTemplate(title: 'Module walk', template: template);
+
+    await tester.pumpWidget(NovelistApp(database: db, settings: settings));
+    await settle(tester);
+    await tester.tap(find.text('Module walk'));
+    await settle(tester);
+
+    Future<void> openModule(String label) async {
+      await tester.tap(find.byIcon(Icons.menu));
+      await settle(tester);
+      await tester.tap(find.text(label).last);
+      await settle(tester);
+    }
+
+    // Books: the template created one book.
+    expect(find.text('Book 1'), findsWidgets);
+
+    // Plot: the template's categories are listed as chips.
+    await openModule(S.plot);
+    expect(find.text('Characters'), findsWidgets);
+    expect(find.text('Locations'), findsWidgets);
+
+    // Write: empty pool with a call to action.
+    await openModule(S.write);
+    expect(find.text(S.noScenesToDisplay), findsOneWidget);
+
+    // Schedule: the selected book and its streak counters.
+    await openModule(S.schedule);
+    expect(find.text('Book 1'), findsWidgets);
+    expect(find.text(S.writingDays), findsOneWidget);
+    expect(find.text(S.currentStreak), findsOneWidget);
   });
 
   testWidgets('settings screen exposes the typography toggles', (tester) async {
