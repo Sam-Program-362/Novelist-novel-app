@@ -1,12 +1,12 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/l10n/strings.dart';
 import '../../state/app_settings.dart';
+import '../help/easy_mode_screen.dart';
+import '../help/help_center_screen.dart';
+import '../help/tutorial_screen.dart';
 import '../widgets/common.dart';
 
 /// Settings, help and legal surfaces.
@@ -154,25 +154,46 @@ class SettingsScreen extends StatelessWidget {
           const Divider(),
           _header(theme, S.helpCenter),
           ListTile(
-            leading: const Icon(Icons.menu_book_outlined),
-            title: const Text(S.quickGuide),
-            onTap: () => _showHtmlAsset(context, 'assets/quickstart_en.html', S.quickGuide),
-          ),
-          ListTile(
             leading: const Icon(Icons.help_outline),
-            title: const Text(S.faq),
-            onTap: () => _showFaq(context),
+            title: const Text(S.helpCenter),
+            subtitle: Text('${S.faq} · ${S.quickGuide} · ${S.privacyPolicy} · '
+                '${S.termsAndConditions}'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(builder: (_) => const HelpCenterScreen()),
+            ),
           ),
           ListTile(
-            leading: const Icon(Icons.privacy_tip_outlined),
-            title: const Text(S.privacyPolicy),
-            onTap: () => _showHtmlAsset(context, 'assets/privacy_policy.html', S.privacyPolicy),
+            leading: const Icon(Icons.school_outlined),
+            title: const Text(S.tutorial),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(builder: (_) => const TutorialScreen()),
+            ),
           ),
           ListTile(
-            leading: const Icon(Icons.description_outlined),
-            title: const Text(S.termsAndConditions),
-            onTap: () =>
-                _showHtmlAsset(context, 'assets/terms_and_conditions.html', S.termsAndConditions),
+            leading: const Icon(Icons.auto_awesome_outlined),
+            title: const Text(S.easyMode),
+            subtitle: const Text(S.easyModeIncompatibility),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(builder: (_) => const EasyModeScreen()),
+            ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.flag_outlined),
+            title: Text('${S.wordGoal} · ${settings.dailyWordGoal}'),
+            subtitle: const Text(S.wordsPerDay),
+            onTap: () async {
+              final text = await promptForText(
+                context,
+                title: S.wordGoal,
+                hint: S.words,
+                initial: settings.dailyWordGoal.toString(),
+              );
+              final value = int.tryParse(text?.trim() ?? '');
+              if (value != null && value > 0) settings.setDailyWordGoal(value);
+            },
           ),
           ListTile(
             leading: const Icon(Icons.mail_outline),
@@ -214,85 +235,5 @@ class SettingsScreen extends StatelessWidget {
         ),
       );
 
-  Future<void> _showHtmlAsset(BuildContext context, String asset, String title) async {
-    final raw = await rootBundle.loadString(asset);
-    final text = _stripHtml(raw);
-    if (!context.mounted) return;
-    await showDialog<void>(
-      context: context,
-      builder: (dialogContext) => AlertDialog(
-        title: Text(title),
-        content: SizedBox(
-          width: 520,
-          child: SingleChildScrollView(child: Text(text)),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(dialogContext).pop(),
-            child: const Text(S.close),
-          ),
-        ],
-      ),
-    );
-  }
 
-  Future<void> _showFaq(BuildContext context) async {
-    final raw = await rootBundle.loadString('assets/faqs_en.json');
-    final entries = jsonDecode(raw) as List;
-    if (!context.mounted) return;
-    await showModalBottomSheet<void>(
-      context: context,
-      isScrollControlled: true,
-      builder: (sheetContext) => DraggableScrollableSheet(
-        expand: false,
-        initialChildSize: 0.85,
-        builder: (context, scrollController) => ListView(
-          controller: scrollController,
-          padding: const EdgeInsets.all(16),
-          children: [
-            Text(S.faq, style: Theme.of(context).textTheme.titleLarge),
-            const SizedBox(height: 12),
-            for (final entry in entries.whereType<Map>())
-              ExpansionTile(
-                title: Text(entry['question']?.toString() ?? ''),
-                childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(_stripHtml(entry['answer']?.toString() ?? '')),
-                  ),
-                ],
-              ),
-            if (entries.isEmpty) const Text(S.noQuestionsToDisplay),
-          ],
-        ),
-      ),
-    );
-  }
-
-  String _stripHtml(String html) {
-    var text = html
-        .replaceAll(RegExp(r'<(script|style)[^>]*>.*?</\1>', dotAll: true), ' ')
-        .replaceAll(RegExp(r'<br\s*/?>', caseSensitive: false), '\n')
-        .replaceAll(RegExp(r'</(p|div|li|h[1-6])>', caseSensitive: false), '\n')
-        .replaceAll(RegExp(r'<[^>]+>'), ' ');
-    const entities = {
-      '&nbsp;': ' ',
-      '&amp;': '&',
-      '&lt;': '<',
-      '&gt;': '>',
-      '&quot;': '"',
-      '&#39;': "'",
-      '&rsquo;': '\u2019',
-      '&lsquo;': '\u2018',
-      '&ldquo;': '\u201C',
-      '&rdquo;': '\u201D',
-      '&mdash;': '\u2014',
-      '&ndash;': '\u2013',
-      '&hellip;': '\u2026',
-      '&eacute;': '\u00E9',
-    };
-    entities.forEach((key, value) => text = text.replaceAll(key, value));
-    return text.replaceAll(RegExp(r'[ \t]+'), ' ').replaceAll(RegExp(r'\n\s*\n+'), '\n\n').trim();
-  }
 }

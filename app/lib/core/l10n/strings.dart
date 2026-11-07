@@ -204,7 +204,8 @@ class S {
   static const backupCreated = 'Backup created';
   static const backupRestored = 'Backup restored';
   static const noAppsCanPerformThisAction = 'No apps can perform this action';
-  static const restoreFromHistory = 'Restore this version';
+  static const restoreFromHistory = 'Restore from history';
+  static const restoreThisVersion = 'Restore this version';
   static const cloud = 'Cloud';
   static const cloudNotConnected = 'Cloud backup is not configured';
   static const sendToCloud = 'Send to cloud';
@@ -224,7 +225,7 @@ class S {
   static const smartEllipsis = 'Smart ellipsis';
   static const setAutomaticCorrection = 'Automatic correction';
   static const quickGuide = 'Quick guide';
-  static const helpCenter = 'Help centre';
+  static const helpCenter = 'Help center';
   static const noQuestionsToDisplay = 'No questions to display';
   static const faq = 'FAQ';
   static const privacyPolicy = 'Privacy policy';
@@ -237,6 +238,47 @@ class S {
   static const youtubeChannel = 'YouTube channel';
   static const facebookPage = 'Facebook page';
   static const englishOnlyNote = 'English (more languages not yet provided)';
+
+  // Navigation extras (routes `/search`, `/tutorial`, `/cloud_library`, `/intro`, `/easy_mode`)
+  static const skip = 'Skip';
+  static const next = 'Next';
+  static const start = 'Start';
+  static const gotIt = 'Got it';
+  static const refresh = 'Refresh';
+  static const searchHint = 'Search scenes and items';
+  static const noSearchResults = 'Nothing found';
+  static const cloudLibrary = 'Cloud library';
+  static const cloudConnect = 'Cloud connect';
+  static const cloudConnected = 'Cloud connected';
+  static const cloudDisconnected = 'Cloud disconnected';
+  static const cloudDisconnect = 'Cloud disconnect';
+  static const receivedFromCloud = 'Received from cloud';
+  static const fromOnlineLibrary = 'From online library';
+  static const noCloudBooksToDisplay = 'No books in the cloud library';
+  static const tutorial = 'Tutorial';
+  static const endTutorial = 'End tutorial';
+  static const easyMode = 'Easy mode';
+  static const easyModeIncompatibility = 'Easy mode keeps only the books and writing tools visible';
+  static const reorder = 'Reorder';
+  static const reorderBooks = 'Reorder books';
+  static const reorderSections = 'Reorder sections';
+  static const reorderScenes = 'Reorder scenes';
+  static const reorderItems = 'Reorder items';
+  static const reorderStatuses = 'Reorder statuses';
+  static const reorderCategories = 'Reorder categories';
+  static const reorderSubplots = 'Reorder subplots';
+  static const reorderMetadataGroups = 'Reorder metadata groups';
+  static const reorderMetadataElements = 'Reorder metadata elements';
+  static const reorderRelationships = 'Reorder relationships';
+  static const wordGoalToday = 'Words written today';
+  static const wordsPerDay = 'words per day';
+  static const introPitch1Title = 'Write your novel';
+  static const introPitch1Body = 'Keep the manuscript, the plot and the research in one place.';
+  static const introPitch2Title = 'Build the world first';
+  static const introPitch2Body =
+      'Themes, events, characters, locations and props are ready to fill in with the standard template.';
+  static const introPitch3Title = 'Keep going';
+  static const introPitch3Body = 'Set a daily word goal, watch the streak grow and export when it is done.';
 
   // Errors
   static const anErrorOccurred = 'An error occurred';

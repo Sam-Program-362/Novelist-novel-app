@@ -11,6 +11,9 @@ import '../../data/dao/projects_dao.dart';
 import '../../models/entities.dart';
 import '../../state/library_controller.dart';
 import '../../state/open_project.dart';
+import '../cloud/cloud_library_screen.dart';
+import '../help/help_center_screen.dart';
+import '../help/tutorial_screen.dart';
 import '../settings/settings_screen.dart';
 import '../shell/project_screen.dart';
 import '../widgets/common.dart';
@@ -282,8 +285,26 @@ class LibraryScreen extends StatelessWidget {
                   builder: (_) => const SettingsScreen(),
                 ));
               }
+              if (value == 'cloud') {
+                Navigator.of(context).push(MaterialPageRoute<void>(
+                  builder: (_) => const CloudLibraryScreen(),
+                ));
+              }
+              if (value == 'help') {
+                Navigator.of(context).push(MaterialPageRoute<void>(
+                  builder: (_) => const HelpCenterScreen(),
+                ));
+              }
+              if (value == 'tutorial') {
+                Navigator.of(context).push(MaterialPageRoute<void>(
+                  builder: (_) => const TutorialScreen(),
+                ));
+              }
             },
             itemBuilder: (_) => const [
+              PopupMenuItem(value: 'cloud', child: Text(S.cloudLibrary)),
+              PopupMenuItem(value: 'tutorial', child: Text(S.tutorial)),
+              PopupMenuItem(value: 'help', child: Text(S.helpCenter)),
               PopupMenuItem(value: 'import', child: Text(S.restoreBackup)),
               PopupMenuItem(value: 'settings', child: Text(S.settings)),
             ],

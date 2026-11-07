@@ -1,0 +1,191 @@
+# key	verified English value (exists verbatim, modulo punctuation, in the shipping string table)
+add_book	Add book
+add_category	Add category
+add_item	Add item
+add_metadata_element	Add metadata element
+add_metadata_group	Add metadata group
+add_name	Add name"
+add_note	Add note
+add_picture	Add picture
+add_project	Add project
+add_relationship	Add relationship
+add_scene	Add scene
+add_section	Add section
+add_status	Add status
+add_subplot	Add subplot
+add_subsection	Add subsection
+add_tag	Add tag
+align_center	Align center
+align_left	Align left
+align_right	Align right
+an_error_occurred	An error occurred
+apple_icloud	Apple iCloud
+are_you_sure_you_want_to_clear	Are you sure you want to clear?
+are_you_sure_you_want_to_delete	Are you sure you want to delete?
+are_you_sure_you_want_to_delete_the_entire_book	Are you sure you want to delete the entire book?
+are_you_sure_you_want_to_delete_the_entire_project	Are you sure you want to delete the entire project?
+at_least_one_section_is_required_to_compile	At least one section is required to compile
+authorize_google_drive	Authorize Google Drive
+automatic_indentation	Automatic indentation
+backed_up	Backed up
+clear_cover	Clear cover
+cloud_connected	Cloud connected
+cloud_disconnected	Cloud disconnected
+cloud_library	Cloud library
+cloud_not_connected	Cloud not connected
+coming_soon	Coming soon
+connect_to_cloud	Connect to cloud
+connection_failed	Connection failed
+copy_into_clipboard	Copy into clipboard
+date_of_insertion	Date of insertion
+debug_mode_activated	Debug mode activated
+deselect_all	Deselect all
+device_name	Device name
+disconnect_from_cloud	Disconnect from cloud
+due_date	Due date
+edit_book	Edit book
+edit_category	Edit category
+edit_item	Edit item
+edit_metadata_element	Edit metadata element
+edit_metadata_group	Edit metadata group
+edit_name	Edit name
+edit_note	Edit note
+edit_picture	Edit picture
+edit_project	Edit project
+edit_relationship	Edit relationship
+edit_scene	Edit scene
+edit_section	Edit section
+edit_status	Edit status
+edit_subplot	Edit subplot
+edit_tag	Edit tag
+end_tutorial	End tutorial
+facebook_page	Facebook page
+from_camera	From camera
+from_gallery	From gallery
+from_online_library	From online library
+google_drive	Google Drive
+help_center	Help center
+i_accept_the_operation_cant_be_undone	I accept the operation can't be undone
+i_accept_the_privacy_policy	I accept the privacy policy
+i_accept_the_terms_and_conditions	I accept the terms and conditions
+include_items	Include items
+include_scenes	Include scenes
+include_sections	Include sections
+insert_a_comment	Insert a comment
+insert_a_link	Insert a link
+invalid_backup_file	Invalid backup file
+invalid_comment	Invalid comment
+invalid_file	Invalid file
+invalid_link	Invalid link
+item_id	/item/:id
+last_modification	Last modification
+last_sync	Last sync
+last_update_date	lastUpdateDate
+local_version	Local version
+main_information	Main information
+manage_books	Manage books
+match_case	Match case
+mode_normal	Mode Normal
+no_apps_can_perform_this_action	No apps can perform this action
+no_books_to_display	No books to display
+no_categories_to_display	No categories to display
+no_files_to_display	No files to display
+no_histories_to_display	No histories to display
+no_items_to_display	No items to display
+no_metadata_elements_to_display	No metadata elements to display
+no_metadata_groups_to_display	No metadata groups to display
+no_names_to_display	No names to display
+no_notes_to_display	No notes to display
+no_pictures_to_display	No pictures to display
+no_progresses_to_display	No progresses to display
+no_questions_to_display	No questions to display
+no_relationships_to_display	No relationships to display
+no_scenes_to_display	No scenes to display
+no_sections_to_display	No sections to display
+no_statuses_to_display	No statuses to display
+no_subplots_to_display	No subplots to display
+no_tags_to_display	No tags to display
+no_tools_to_display	No tools to display
+not_set	Not set
+on_error	onError
+paste_item	Paste item
+photos_provided_by	Photos provided by
+pick_color	Pick color
+please_create_a_project_before	Please create a project before
+please_enter_a_device_name	Please enter a device name
+please_enter_a_name	Please enter a name
+please_enter_a_synopsis	Please enter a synopsis
+please_enter_a_text	Please enter a text
+please_enter_a_title	Please enter a title
+please_enter_a_value	Please enter a value
+please_select_an_item	Please select an item
+please_select_at_least_one_section	Please select at least one section
+please_wait	Please wait
+privacy_policy	Privacy policy
+quick_guide	Quick guide
+receive_from_cloud	Receive from cloud
+received_from_cloud	Received from cloud
+reference_panel	Reference panel@
+remote_version	Remote version
+reorder_books	Reorder books
+reorder_categories	Reorder categories
+reorder_items	Reorder items
+reorder_metadata_elements	Reorder metadata elements
+reorder_metadata_groups	Reorder metadata groups
+reorder_relationships	Reorder relationships
+reorder_scenes	Reorder scenes
+reorder_sections	Reorder sections
+reorder_statuses	Reorder statuses
+reorder_subplots	Reorder subplots
+replace_all	Replace all
+restore_backup	Restore backup
+restore_from_history	Restore from history
+restore_previous_position	Restore previous position
+restore_this_version	Restore this version
+sample_book	Sample book
+scene_id	/scene/:id
+select_a_format	Select a format
+select_all	Select All
+select_book	Select book
+select_cloud	Select cloud
+select_image	Select image
+select_indentation	Select indentation
+select_item	Select item
+select_items	Select items
+select_language	Select language
+select_parent_section	Select parent section
+select_relationships	Select relationships
+select_scenes	Select scenes
+select_status	Select status
+select_statuses	Select statuses
+select_subplots	Select subplots
+select_tags	Select tags
+send_to_cloud	Send to cloud
+sent_to_cloud	Sent to cloud
+set_automatic_correction	Set automatic correction
+set_cover	Set cover
+set_device_name	Set device name
+set_existing_scenes	Set existing scenes
+set_goals	Set goals
+set_language	Set language
+set_mode	Set mode
+set_theme	Set theme
+set_zoom	Set zoom
+show_table_of_contents	Show table of contents
+smart_ellipsis	Smart ellipsis
+smart_guillemets	Smart guillemets
+smart_hyphens	Smart hyphens
+smart_quotes	Smart quotes
+table_of_contents	Table of contents
+table_of_contents_title	Table of contents title&
+tap_to_edit_comment	Tap to edit comment
+terms_and_conditions	Terms and conditions
+third_party_libraries	Third party libraries
+this_helps_us_providing_a_better_application	This helps us providing a better application
+this_helps_us_understanding_your_needs	This helps us understanding your needs
+web_version	Web version
+whole_word	Whole word
+word_count	Word count
+youtube_channel	YouTube channel
+zoom_in	Zoom in
+zoom_out	Zoom out

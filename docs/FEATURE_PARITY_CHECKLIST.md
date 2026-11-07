@@ -188,3 +188,32 @@ schema, `NOV` = sample.nov, `TPL` = template JSON, `FAQ` = in-app FAQ, `MAN` = A
 | J6 | Backup → restore reproduces identical project content | IN_PROGRESS |
 | J7 | Exported EPUB/ODT/HTML contain only expected content and open correctly | IN_PROGRESS |
 | J8 | Word counts/progress consistent between editor, schedule, and export | IN_PROGRESS |
+
+---
+
+## Z. Route parity (mined from `libapp.so` in build 250)
+
+Every route the reference registers, with the state of the rebuild. Evidence column `STR` = route
+path or interface string recovered from the shipping binary (`docs/reference/original_ui_strings.txt`).
+
+| # | Route / surface | Status | Evidence |
+|---|---|---|---|
+| Z1 | `/books` bookshelf with sort, grid/list and menu | IMPLEMENTED | STR |
+| Z2 | `/project` workspace drawer with books switcher | IMPLEMENTED | STR (`drawer_open`, `end_drawer_open`) |
+| Z3 | `/scene/:id` scene editor with block menu | IMPLEMENTED | STR (`ScenePopupMenuAction`) |
+| Z4 | `/item/:id` item detail with six tabs | IMPLEMENTED | STR (`ItemPopupMenuAction`) |
+| Z5 | `/categories`, `/statuses/:entity/:id`, `/tags/:entity/:id` managers | IMPLEMENTED | STR |
+| Z6 | `/search?query=` | IMPLEMENTED · TESTED | STR |
+| Z7 | `/preview`, `/compile` | IMPLEMENTED | STR |
+| Z8 | `/progress` | IMPLEMENTED · TESTED | STR (`book_progress_*`) |
+| Z9 | `/history` + `Restore this version` | IMPLEMENTED · TESTED | STR (`Restore from history`) |
+| Z10 | `/cloud_library` with Drive/iCloud vendors | IMPLEMENTED (UI) · BLOCKED (transfer) | STR (`CloudVendor`, `resumable/upload/drive/v3/files`) |
+| Z11 | `/help_center` (FAQ, quick guide, privacy, terms) | IMPLEMENTED · TESTED | STR, assets |
+| Z12 | `/tutorial` with `End tutorial` | IMPLEMENTED · TESTED | STR |
+| Z13 | `/intro` first-launch pages | IMPLEMENTED · TESTED | STR, assets |
+| Z14 | `/easy_mode` | IMPLEMENTED | STR (`easy_mode_incompatibility`) |
+| Z15 | Reorder dialogs (books, sections, scenes, items, statuses, categories, subplots, relationships, metadata groups/elements) | IMPLEMENTED | STR (`Reorder …`) |
+| Z16 | Pickers (`select_items/:id`, `select_scenes`, `select_section`, `select_online_image`) | IMPLEMENTED | STR |
+| Z17 | 13 locales | BLOCKED | STR (translated values exist in the binary but cannot be keyed reliably) |
+| Z18 | Intro/empty-state artwork (10 illustrations + `intro.jpg`) | BLOCKED | assets (size/licensing) |
+| Z19 | Font Awesome iconography | IMPLEMENTED (approximated) | `FontManifest.json` |
