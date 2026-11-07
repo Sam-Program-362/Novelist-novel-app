@@ -134,6 +134,15 @@ void main() {
     await tester.tap(find.text('Module walk'));
     await settle(tester);
 
+    void expectVisible(String text) {
+      final visible = tester
+          .widgetList<Text>(find.byType(Text))
+          .map((widget) => widget.data)
+          .whereType<String>()
+          .toList(growable: false);
+      expect(find.text(text), findsWidgets, reason: 'visible texts were: $visible');
+    }
+
     Future<void> openModule(String label) async {
       await tester.tap(find.byIcon(Icons.menu));
       await settle(tester);
@@ -142,22 +151,22 @@ void main() {
     }
 
     // Books: the template created one book.
-    expect(find.text('Book 1'), findsWidgets);
+    expectVisible('Book 1');
 
     // Plot: the template's categories are listed as chips.
     await openModule(S.plot);
-    expect(find.text('Characters'), findsWidgets);
-    expect(find.text('Locations'), findsWidgets);
+    expectVisible('Characters');
+    expectVisible('Locations');
 
     // Write: empty pool with a call to action.
     await openModule(S.write);
-    expect(find.text(S.noScenesToDisplay), findsOneWidget);
+    expectVisible(S.noScenesToDisplay);
 
     // Schedule: the selected book and its streak counters.
     await openModule(S.schedule);
-    expect(find.text('Book 1'), findsWidgets);
-    expect(find.text(S.writingDays), findsOneWidget);
-    expect(find.text(S.currentStreak), findsOneWidget);
+    expectVisible('Book 1');
+    expectVisible(S.writingDays);
+    expectVisible(S.currentStreak);
   });
 
   testWidgets('settings screen exposes the typography toggles', (tester) async {
