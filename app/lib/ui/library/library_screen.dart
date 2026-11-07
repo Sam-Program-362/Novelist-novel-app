@@ -291,6 +291,7 @@ class LibraryScreen extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        heroTag: 'library-fab',
         tooltip: S.addProject,
         onPressed: () => _createProject(context),
         child: const Icon(Icons.add),

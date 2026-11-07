@@ -43,6 +43,7 @@ class _PlotTabState extends State<PlotTab> {
 
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
+        heroTag: 'plot-fab',
         onPressed: () => _addItem(context, controller, selected),
         icon: const Icon(Icons.add),
         label: const Text(S.addItem),

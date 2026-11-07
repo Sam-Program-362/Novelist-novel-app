@@ -93,6 +93,7 @@ class _CategoriesList extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.transparent,
       floatingActionButton: FloatingActionButton.small(
+        heroTag: null, // several of these live in one TabBarView, so no route-wide hero
         onPressed: () async {
           final title = await promptForText(context, title: S.addCategory);
           if (title == null || title.isEmpty) return;
@@ -299,6 +300,7 @@ class _StatusesList extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.transparent,
       floatingActionButton: FloatingActionButton.small(
+        heroTag: null, // several of these live in one TabBarView, so no route-wide hero
         onPressed: () async {
           final title = await promptForText(context, title: S.addStatus);
           if (title == null || title.isEmpty) return;
@@ -363,6 +365,7 @@ class _SubplotsList extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.transparent,
       floatingActionButton: FloatingActionButton.small(
+        heroTag: null, // several of these live in one TabBarView, so no route-wide hero
         onPressed: () async {
           final title = await promptForText(context, title: S.addSubplot);
           if (title == null || title.isEmpty) return;

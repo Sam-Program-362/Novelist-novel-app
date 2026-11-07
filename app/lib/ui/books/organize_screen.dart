@@ -62,6 +62,7 @@ class OrganizeScreen extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
+        heroTag: 'organize-fab',
         onPressed: () => _addSection(context, controller, parent: null),
         icon: const Icon(Icons.add),
         label: const Text(S.addSection),

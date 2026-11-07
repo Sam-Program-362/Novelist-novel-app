@@ -126,6 +126,7 @@ class BooksTab extends StatelessWidget {
 
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        heroTag: 'books-fab',
         tooltip: S.addBook,
         onPressed: () => _addBook(context),
         child: const Icon(Icons.add),

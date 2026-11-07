@@ -18,6 +18,7 @@ class WriteTab extends StatelessWidget {
 
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
+        heroTag: 'write-fab',
         onPressed: () => _addScene(context, controller),
         icon: const Icon(Icons.add),
         label: const Text(S.addScene),

@@ -225,6 +225,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       floatingActionButton: FloatingActionButton.small(
+        heroTag: null, // several of these live in one TabBarView, so no route-wide hero
         onPressed: () async {
           final name = await promptForText(context, title: S.addName);
           if (name == null || name.isEmpty) return;
@@ -278,6 +279,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       floatingActionButton: FloatingActionButton.small(
+        heroTag: null, // several of these live in one TabBarView, so no route-wide hero
         onPressed: () async {
           final text = await promptForText(context, title: S.addNote, maxLines: 4);
           if (text == null || text.isEmpty) return;
@@ -332,6 +334,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       floatingActionButton: FloatingActionButton.small(
+        heroTag: null, // several of these live in one TabBarView, so no route-wide hero
         onPressed: () async {
           final data = await pickImageAsDataUri(context);
           if (data == null) return;
@@ -386,6 +389,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       floatingActionButton: FloatingActionButton.small(
+        heroTag: null, // several of these live in one TabBarView, so no route-wide hero
         onPressed: others.isEmpty
             ? null
             : () async {
