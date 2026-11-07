@@ -50,7 +50,9 @@ jobs:
           set -o pipefail
           if [ ! -f app/android/gradlew ]; then
             rm -rf /tmp/gw && mkdir -p /tmp/gw
-            (cd /tmp/gw && gradle wrapper --gradle-version 8.9 --distribution-type bin 2>&1 \
+            # Gradle refuses to create a wrapper outside a build, so give it an empty one first.
+            (cd /tmp/gw && touch settings.gradle \
+              && gradle wrapper --gradle-version 8.12 --distribution-type bin 2>&1 \
               | tee /tmp/wrapper.log)
             cp -r /tmp/gw/gradle /tmp/gw/gradlew /tmp/gw/gradlew.bat app/android/
             chmod +x app/android/gradlew
