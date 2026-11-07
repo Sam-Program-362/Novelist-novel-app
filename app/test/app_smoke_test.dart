@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:novelist/app.dart';
 import 'package:novelist/core/l10n/strings.dart';
+import 'package:novelist/data/dao/books_dao.dart';
 import 'package:novelist/data/dao/plot_dao.dart';
 import 'package:novelist/data/dao/projects_dao.dart';
 import 'package:novelist/data/db/database.dart';
-import 'package:novelist/data/repositories/project_repository.dart';
-import 'package:novelist/data/templates/template_service.dart';
 import 'package:novelist/models/entities.dart';
 import 'package:novelist/state/app_settings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -30,9 +28,25 @@ void main() {
 
   tearDown(() => db.close());
 
-  Future<Project> seedProject([String title = 'Seeded novel']) async {
-    final template = TemplateService.parse(await rootBundle.loadString('assets/template_standard_novel.json'));
-    return ProjectRepository(db).createFromTemplate(title: title, template: template);
+  /// Pumps a handful of frames instead of `pumpAndSettle`: screens with a progress indicator never
+  /// reach a frame-free state, and the point of these tests is what is on screen, not the animation.
+  Future<void> settle(WidgetTester tester) async {
+    for (var i = 0; i < 12; i++) {
+      await tester.pump(const Duration(milliseconds: 80));
+    }
+  }
+
+  /// Seeds a minimal project synchronously so navigation can be tested without touching assets.
+  Project seedProject([String title = 'Seeded novel']) {
+    final project = ProjectsDao(db).create(title: title);
+    final status = PlotDao(db).addStatus(
+      projectId: project.id,
+      title: 'To do',
+      colour: 0xFFD6E0D1,
+    );
+    BooksDao(db).create(projectId: project.id, title: 'Book 1');
+    expect(status.id, isPositive);
+    return project;
   }
 
   testWidgets('starts on the library with an empty state', (tester) async {
@@ -73,23 +87,22 @@ void main() {
   });
 
   testWidgets('opens a project in the workspace shell', (tester) async {
-    final project = await seedProject();
+    seedProject();
     await tester.pumpWidget(NovelistApp(database: db, settings: settings));
-    await tester.pumpAndSettle();
+    await settle(tester);
 
     expect(find.text('Seeded novel'), findsOneWidget);
 
     await tester.tap(find.text('Seeded novel'));
-    await tester.pumpAndSettle();
+    await settle(tester);
 
-    // Project shell: module title in the app bar and the book created by the template.
+    // Project shell: module title in the app bar and the book that belongs to the project.
     expect(find.text(S.books), findsWidgets);
     expect(find.text('Book 1'), findsWidgets);
-    expect(project.id, isPositive);
 
     // Back to the library without losing the project.
     await tester.pageBack();
-    await tester.pumpAndSettle();
+    await settle(tester);
     expect(find.text(S.library), findsOneWidget);
     expect(find.text('Seeded novel'), findsOneWidget);
   });
@@ -99,15 +112,21 @@ void main() {
     await tester.pumpAndSettle();
 
     await tester.tap(find.byIcon(Icons.more_vert));
-    await tester.pumpAndSettle();
+    await settle(tester);
     await tester.tap(find.text(S.settings).last);
-    await tester.pumpAndSettle();
+    await settle(tester);
 
+    // The typing section is below the fold, so scroll it into view like a user would.
+    await tester.scrollUntilVisible(
+      find.text(S.smartEllipsis),
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(find.text(S.smartQuotes), findsOneWidget);
     expect(find.text(S.smartEllipsis), findsOneWidget);
 
     await tester.tap(find.text(S.smartEllipsis));
-    await tester.pumpAndSettle();
+    await settle(tester);
     expect(settings.smartEllipsis, isFalse);
   });
 }
