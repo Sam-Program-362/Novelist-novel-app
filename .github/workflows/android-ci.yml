@@ -42,14 +42,20 @@ jobs:
       - name: Flutter version
         run: flutter --version
 
+      # The wrapper is generated in an empty directory: running Gradle inside `app/android` would
+      # configure the Flutter project, which needs `local.properties` that only exists after the
+      # first `flutter build`.
       - name: Generate Gradle wrapper
-        working-directory: app/android
         run: |
-          if [ ! -f gradlew ]; then
-            gradle wrapper --gradle-version 8.9 --distribution-type bin
-            chmod +x gradlew
+          set -o pipefail
+          if [ ! -f app/android/gradlew ]; then
+            rm -rf /tmp/gw && mkdir -p /tmp/gw
+            (cd /tmp/gw && gradle wrapper --gradle-version 8.9 --distribution-type bin 2>&1 \
+              | tee /tmp/wrapper.log)
+            cp -r /tmp/gw/gradle /tmp/gw/gradlew /tmp/gw/gradlew.bat app/android/
+            chmod +x app/android/gradlew
           fi
-          ls -la
+          ls -la app/android
 
       - name: Resolve dependencies
         working-directory: app
@@ -93,7 +99,7 @@ jobs:
           body=/tmp/failure.md
           {
             echo "CI failed for ${GITHUB_SHA}"
-            for name in analyze test build; do
+            for name in wrapper analyze test build; do
               if [ -s "/tmp/$name.log" ]; then
                 echo
                 echo "### $name"
