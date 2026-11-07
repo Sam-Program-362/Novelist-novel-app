@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+
+Name: AndroidManifest.xml
+SHA1-Digest: Y8U5lBv++tzzcQQbewn2aJq2ss4=
+
+Name: lib/arm64-v8a/libapp.so
+SHA1-Digest: dEFFRgBqgf9kxgpsg+d7o0VnZXg=
+
+Name: lib/arm64-v8a/libdartjni.so
+SHA1-Digest: fbkwVD4+zV6qB51Oq4VNHOLoY1g=
+
+Name: lib/arm64-v8a/libdatastore_shared_counter.so
+SHA1-Digest: CV4WlQQMDBlkJLNYR0xKgZjKOsk=
+
+Name: lib/arm64-v8a/libflutter.so
+SHA1-Digest: miL/xFSqVb/BaXKd5FbWpVPbC5g=
+
+Name: lib/arm64-v8a/libsqlite3.so
+SHA1-Digest: DjIrjo3ZrVxgB1dlakBvysw+jZ0=
+
+Name: lib/arm64-v8a/libsqlite3_connection_pool.so
+SHA1-Digest: KSSKR8fO7rGYLyBCgQKm9dgrCVw=
+
+Name: stamp-cert-sha256
+SHA1-Digest: 5vTkm69vqAbusD/fho7oWwc7j+I=
+

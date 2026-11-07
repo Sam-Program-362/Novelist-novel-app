@@ -1,5 +1,0 @@
-package androidx.lifecycle;
-
-/* loaded from: classes.dex */
-public abstract class O implements Q {
-}

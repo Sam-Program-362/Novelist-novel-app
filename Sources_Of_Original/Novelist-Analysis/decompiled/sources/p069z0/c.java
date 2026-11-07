@@ -1,0 +1,116 @@
+package p069z0;
+
+import O1.g;
+import P1.m;
+import a2.p;
+import android.app.Activity;
+import android.content.Context;
+import androidx.window.extensions.layout.WindowLayoutComponent;
+import androidx.window.extensions.layout.WindowLayoutInfo;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.concurrent.locks.ReentrantLock;
+import p052r1.k;
+import p058u0.d;
+import p066y0.a;
+
+/* JADX INFO: loaded from: classes.dex */
+public final class c implements a {
+
+    /* JADX INFO: renamed from: a, reason: collision with root package name */
+    public final WindowLayoutComponent f4735a;
+
+    /* JADX INFO: renamed from: b, reason: collision with root package name */
+    public final p056t0.a f4736b;
+
+    /* JADX INFO: renamed from: c, reason: collision with root package name */
+    public final ReentrantLock f4737c = new ReentrantLock();
+
+    /* JADX INFO: renamed from: d, reason: collision with root package name */
+    public final LinkedHashMap f4738d = new LinkedHashMap();
+
+    /* JADX INFO: renamed from: e, reason: collision with root package name */
+    public final LinkedHashMap f4739e = new LinkedHashMap();
+
+    /* JADX INFO: renamed from: f, reason: collision with root package name */
+    public final LinkedHashMap f4740f = new LinkedHashMap();
+
+    public c(WindowLayoutComponent windowLayoutComponent, p056t0.a aVar) {
+        this.f4735a = windowLayoutComponent;
+        this.f4736b = aVar;
+    }
+
+    @Override // p066y0.a
+    public final void a(Context context, p029j0.c cVar, k kVar) {
+        g gVar;
+        LinkedHashMap linkedHashMap = this.f4738d;
+        ReentrantLock reentrantLock = this.f4737c;
+        reentrantLock.lock();
+        try {
+            f fVar = (f) linkedHashMap.get(context);
+            LinkedHashMap linkedHashMap2 = this.f4739e;
+            if (fVar != null) {
+                fVar.b(kVar);
+                linkedHashMap2.put(kVar, context);
+                gVar = g.f1211a;
+            } else {
+                gVar = null;
+            }
+            if (gVar == null) {
+                f fVar2 = new f(context);
+                linkedHashMap.put(context, fVar2);
+                linkedHashMap2.put(kVar, context);
+                fVar2.b(kVar);
+                if (!(context instanceof Activity)) {
+                    fVar2.accept(new WindowLayoutInfo(m.f1219k));
+                } else {
+                    this.f4740f.put(fVar2, this.f4736b.a(this.f4735a, p.a(WindowLayoutInfo.class), (Activity) context, new b(1, fVar2, f.class, "accept", "accept(Landroidx/window/extensions/layout/WindowLayoutInfo;)V", 0, 0)));
+                }
+            }
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
+    @Override // p066y0.a
+    public final void b(k kVar) {
+        LinkedHashMap linkedHashMap = this.f4738d;
+        LinkedHashMap linkedHashMap2 = this.f4739e;
+        ReentrantLock reentrantLock = this.f4737c;
+        reentrantLock.lock();
+        try {
+            Context context = (Context) linkedHashMap2.get(kVar);
+            if (context == null) {
+                reentrantLock.unlock();
+                return;
+            }
+            f fVar = (f) linkedHashMap.get(context);
+            if (fVar == null) {
+                reentrantLock.unlock();
+                return;
+            }
+            LinkedHashSet linkedHashSet = fVar.f4748d;
+            ReentrantLock reentrantLock2 = fVar.f4746b;
+            reentrantLock2.lock();
+            try {
+                linkedHashSet.remove(kVar);
+                reentrantLock2.unlock();
+                linkedHashMap2.remove(kVar);
+                if (linkedHashSet.isEmpty()) {
+                    linkedHashMap.remove(context);
+                    d dVar = (d) this.f4740f.remove(fVar);
+                    if (dVar != null) {
+                        dVar.f4591a.invoke(dVar.f4592b, dVar.f4593c);
+                    }
+                }
+                reentrantLock.unlock();
+            } catch (Throwable th) {
+                reentrantLock2.unlock();
+                throw th;
+            }
+        } catch (Throwable th2) {
+            reentrantLock.unlock();
+            throw th2;
+        }
+    }
+}
