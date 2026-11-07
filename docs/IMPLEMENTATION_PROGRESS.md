@@ -4,8 +4,8 @@ Status of the standalone rebuild that lives in `app/`. "Parity" is judged agains
 `docs/FEATURE_PARITY_CHECKLIST.md`; everything marked **Implemented** has code in `app/lib` and a
 matching row in the schema, everything under *Gaps* is a deliberate, documented difference.
 
-Last updated after the first fully green CI run: analyzer clean, 32 database-level tests passing and
-a release APK built on GitHub Actions.
+Last updated after a fully green CI run: analyzer clean, 48 tests passing (database, widget and
+editor flows) and a release APK built on GitHub Actions.
 
 ## How to build and verify
 
@@ -79,6 +79,22 @@ needed):
 | `project_flow_test.dart` | Template parsing, project creation, cascade deletes, the manuscript invariant (unattached scenes never compile, detaching keeps the scene, deleting a section keeps scenes), nested section flattening, scene ordering, split, and EPUB/ODT/HTML output structure (zip entries, `mimetype`, resolved mentions, alignment classes). |
 | `persistence_test.dart` | Data reaches disk across close/reopen, foreign keys stay enabled, newer schemas are refused, and a backup file restores intact. |
 | `editor_text_test.dart` | Smart-quote/guillemet/hyphen/ellipsis conversion and the guarantee that `@mention` tokens survive typography and become embeds. |
+| `editor_screen_test.dart` | The scene editor as a user drives it: paragraphs load, typing is debounced and persisted with typography applied, alignment reaches the stored document, the mention picker writes the item code. |
+| `app_smoke_test.dart` | The real application tree: empty library, project creation from the template, opening a project, walking all four workspace modules through the drawer, and the settings toggles. |
+
+## Bugs the widget tests caught (and what they taught us)
+
+Three defects only became visible once the app tree was mounted, which is why these tests exist:
+
+1. **The Navigator was rebuilt on project open.** The project controller was conditionally provided
+   *around* `MaterialApp`, so adding the provider changed the tree shape, destroyed the `Navigator`
+   and silently reset the route stack back to the library. The provider is now always present (with
+   an inert placeholder controller) so the tree shape never changes.
+2. **Three floating action buttons shared the default hero tag**, which throws during a route
+   transition because the shell keeps every module alive in an `IndexedStack`. Every FAB now has an
+   explicit tag (or opts out) — this is the kind of crash that only appears on navigation.
+3. **`CoverThumb` forwarded `double.infinity` sizes to `Container`/`Image`**, tripping a layout
+   assertion in grid cards. Infinite sizes are now translated into a fill layout instead.
 
 ## Known follow-ups
 
