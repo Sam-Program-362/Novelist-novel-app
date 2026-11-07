@@ -24,7 +24,7 @@ class LibraryScreen extends StatelessWidget {
     final descriptionController = TextEditingController();
     var useStandardTemplate = true;
 
-    final created = await showDialog<bool>(
+    final created = await showDialog<Project>(
       context: context,
       builder: (dialogContext) {
         return StatefulBuilder(
@@ -74,7 +74,7 @@ class LibraryScreen extends StatelessWidget {
             ),
             actions: [
               TextButton(
-                onPressed: () => Navigator.of(dialogContext).pop(false),
+                onPressed: () => Navigator.of(dialogContext).pop(),
                 child: const Text(S.cancel),
               ),
               FilledButton(
@@ -83,14 +83,14 @@ class LibraryScreen extends StatelessWidget {
                     showMessage(context, S.pleaseEnterATitle);
                     return;
                   }
-                  await controller.createProject(
+                  final project = await controller.createProject(
                     title: titleController.text.trim(),
                     description: descriptionController.text.trim().isEmpty
                         ? null
                         : descriptionController.text.trim(),
                     empty: !useStandardTemplate,
                   );
-                  if (dialogContext.mounted) Navigator.of(dialogContext).pop(true);
+                  if (dialogContext.mounted) Navigator.of(dialogContext).pop(project);
                 },
                 child: const Text(S.add),
               ),
@@ -100,11 +100,9 @@ class LibraryScreen extends StatelessWidget {
       },
     );
 
-    if (created == true && context.mounted) {
-      final projects = controller.projects;
-      if (projects.isNotEmpty) {
-        _openProject(context, projects.first);
-      }
+    if (created != null && context.mounted) {
+      // Open the project that was just created, not whichever one sorts first.
+      _openProject(context, created);
     }
   }
 
