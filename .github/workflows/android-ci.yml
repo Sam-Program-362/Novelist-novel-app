@@ -1,0 +1,122 @@
+name: Android CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Analyze, test and package APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install host SQLite (for Flutter unit tests)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libsqlite3-dev
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Flutter version
+        run: |
+          flutter --version 2>&1 | tee /tmp/version.log
+          dart --version 2>&1 | tee -a /tmp/version.log
+
+      # The wrapper is generated in an empty directory: running Gradle inside `app/android` would
+      # configure the Flutter project, which needs `local.properties` that only exists after the
+      # first `flutter build`.
+      - name: Generate Gradle wrapper
+        run: |
+          set -o pipefail
+          if [ ! -f app/android/gradlew ]; then
+            rm -rf /tmp/gw && mkdir -p /tmp/gw
+            # Gradle refuses to create a wrapper outside a build, so give it an empty one first.
+            (cd /tmp/gw && touch settings.gradle \
+              && gradle wrapper --gradle-version 8.14.3 --distribution-type bin 2>&1 \
+              | tee /tmp/wrapper.log)
+            cp -r /tmp/gw/gradle /tmp/gw/gradlew /tmp/gw/gradlew.bat app/android/
+            chmod +x app/android/gradlew
+          fi
+          ls -la app/android
+
+      - name: Resolve dependencies
+        working-directory: app
+        run: flutter pub get
+
+      - name: Analyze
+        working-directory: app
+        run: |
+          set -o pipefail
+          flutter analyze --no-fatal-infos 2>&1 | tee /tmp/analyze.log
+
+      - name: Unit and widget tests
+        working-directory: app
+        run: |
+          set -o pipefail
+          flutter test --reporter expanded 2>&1 | tee /tmp/test.log
+
+      - name: Build release APK
+        working-directory: app
+        run: |
+          set -o pipefail
+          flutter build apk --release 2>&1 | tee /tmp/build.log
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: novelist-rebuild-apk
+          path: app/build/app/outputs/flutter-apk/*.apk
+          if-no-files-found: error
+          retention-days: 30
+
+      # The build logs themselves are not reachable from restricted networks, so a failed run also
+      # publishes the interesting tail of each log as a commit comment. That keeps analyzer and test
+      # output readable straight from the API.
+      - name: Publish failure details
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          body=/tmp/failure.md
+          {
+            echo "CI failed for ${GITHUB_SHA}"
+            for name in version analyze test build; do
+              if [ -s "/tmp/$name.log" ]; then
+                echo
+                echo "### $name (start)"
+                head -c 12000 "/tmp/$name.log" | sed 's/`/'"'"'/g'
+                echo
+                echo "### $name (end)"
+                tail -c 12000 "/tmp/$name.log" | sed 's/`/'"'"'/g'
+                echo
+                echo "### $name (exceptions)"
+                grep -in -A16 -E 'exception|testfailure|expected:|overflowed|timed out' \
+                  "/tmp/$name.log" | head -c 12000 | sed 's/`/'"'"'/g'
+              fi
+            done
+          } > "$body"
+          gh api "repos/${GITHUB_REPOSITORY}/commits/${GITHUB_SHA}/comments" \
+            -f body="$(cat "$body")" || true
