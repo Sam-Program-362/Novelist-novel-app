@@ -99,11 +99,20 @@ class CoverThumb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    // `double.infinity` means "fill the parent", which must not be forwarded to `Container`,
+    // `Image` or `SizedBox`: infinite sizes inside a bounded parent trip a layout assertion.
+    final fill = width.isInfinite || height.isInfinite;
     Widget fallback = Container(
-      width: width,
-      height: height,
+      width: fill ? null : width,
+      height: fill ? null : height,
       color: scheme.surfaceContainerHighest,
-      child: Icon(fallbackIcon, color: scheme.onSurfaceVariant, size: width * 0.34),
+      child: Center(
+        child: Icon(
+          fallbackIcon,
+          color: scheme.onSurfaceVariant,
+          size: fill ? 40 : width * 0.34,
+        ),
+      ),
     );
 
     Widget? image;
@@ -115,8 +124,8 @@ class CoverThumb extends StatelessWidget {
           try {
             image = Image.memory(
               base64Decode(value.substring(comma + 1)),
-              width: width,
-              height: height,
+              width: fill ? null : width,
+              height: fill ? null : height,
               fit: BoxFit.cover,
               errorBuilder: (_, __, ___) => fallback,
             );
@@ -129,8 +138,8 @@ class CoverThumb extends StatelessWidget {
         try {
           image = Image.memory(
             base64Decode(value),
-            width: width,
-            height: height,
+            width: fill ? null : width,
+            height: fill ? null : height,
             fit: BoxFit.cover,
             errorBuilder: (_, __, ___) => fallback,
           );
@@ -142,7 +151,9 @@ class CoverThumb extends StatelessWidget {
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
-      child: SizedBox(width: width, height: height, child: image ?? fallback),
+      child: fill
+          ? SizedBox.expand(child: image ?? fallback)
+          : SizedBox(width: width, height: height, child: image ?? fallback),
     );
   }
 }

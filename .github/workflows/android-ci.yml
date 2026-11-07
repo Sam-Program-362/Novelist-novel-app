@@ -111,6 +111,10 @@ jobs:
                 echo
                 echo "### $name (end)"
                 tail -c 12000 "/tmp/$name.log" | sed 's/`/'"'"'/g'
+                echo
+                echo "### $name (exceptions)"
+                grep -n -E 'EXCEPTION|The following|overflowed|RenderFlex|TestFailure|Error:' \
+                  "/tmp/$name.log" | head -c 8000 | sed 's/`/'"'"'/g'
               fi
             done
           } > "$body"
