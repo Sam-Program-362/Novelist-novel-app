@@ -14,7 +14,8 @@ class OpenProject extends ChangeNotifier {
 
   OpenProject(this.db);
 
-  ProjectController? get controller => _controller;
+  /// The open project, or an inert placeholder used while the library is showing.
+  ProjectController get controller => _controller ??= ProjectController.empty(db);
 
   ProjectController open(int projectId) {
     if (_controller?.projectId == projectId) return _controller!;

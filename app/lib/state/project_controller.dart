@@ -38,9 +38,28 @@ class ProjectController extends ChangeNotifier {
     reload();
   }
 
+  /// Inert controller handed to the provider while no project is open.
+  ///
+  /// It keeps the provider tree shape stable (see `app.dart`); reading from it yields empty lists and
+  /// every mutation is a no-op because no screen is mounted for it.
+  ProjectController.empty(this.db) : projectId = -1;
+
+  bool get isEmpty => projectId < 0;
+
   // -------------------------------------------------------------- snapshot
 
   void reload() {
+    if (isEmpty) {
+      project = null;
+      books = const [];
+      statuses = const [];
+      categories = const [];
+      scenes = const [];
+      subplots = const [];
+      selectedBookId = null;
+      notifyListeners();
+      return;
+    }
     project = projectsDao.byId(projectId);
     books = booksDao.listForProject(projectId);
     statuses = plotDao.statuses(projectId);

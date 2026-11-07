@@ -34,11 +34,11 @@ class NovelistApp extends StatelessWidget {
             home: const LibraryScreen(),
           );
 
-          final controller = openProject.controller;
-          if (controller == null) return app;
-          // Provided above the [Navigator] so pushed routes share the open project.
+          // Always provided, above the [Navigator], so every pushed route can reach the open
+          // project. Adding or removing this provider around `MaterialApp` would change the tree
+          // shape and rebuild the Navigator, throwing away the route stack mid-navigation.
           return ChangeNotifierProvider<ProjectController>.value(
-            value: controller,
+            value: openProject.controller,
             child: app,
           );
         },
