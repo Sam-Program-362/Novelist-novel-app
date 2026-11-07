@@ -53,11 +53,12 @@ class ScenesDao {
     String? synopsis,
     String? text,
     int? ranking,
+    String? code,
   }) {
     final next = ranking ?? db.count('scene', 'scene_project_id = ?', [projectId]) + 1;
     final id = db.insert('scene', {
       'scene_project_id': projectId,
-      'scene_code': CodeGen.next(),
+      'scene_code': code ?? CodeGen.next(),
       'scene_title': title,
       'scene_synopsis': synopsis,
       'scene_text': text,

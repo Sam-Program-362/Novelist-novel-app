@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import '../../core/utils/codes.dart';
+import '../../core/utils/colours.dart';
 import '../../models/entities.dart';
 import '../dao/books_dao.dart';
 import '../dao/plot_dao.dart';
@@ -84,19 +85,19 @@ class NovFile {
                       'value': e.value,
                     })
                 .toList(),
-            'names': plot
+            'item_names': plot
                 .names(item.id)
                 .map((n) => {'code': n.code, 'name': n.name, 'ranking': n.ranking})
                 .toList(),
-            'notes': plot
+            'item_notes': plot
                 .notes(item.id)
                 .map((n) => {'text': n.text, 'ranking': n.ranking})
                 .toList(),
-            'pictures': plot
+            'item_pictures': plot
                 .pictures(item.id)
                 .map((p) => {'name': p.name, 'ranking': p.ranking})
                 .toList(),
-            'relationships': plot.relationships(item.id).map((r) {
+            'item_relationships': plot.relationships(item.id).map((r) {
               final other = plot.itemById(r.otherItemId);
               return {
                 'other_item': other?.code,
@@ -105,10 +106,12 @@ class NovFile {
                 if (r.isRelevant) 'is_relevant': true,
               };
             }).toList(),
-            'tags': plot
+            // The reference stores tag references as objects keyed by `tag`.
+            'item_tags': plot
                 .itemTagIds(item.id)
                 .map((id) => tagByCode[id])
                 .whereType<String>()
+                .map((code) => {'tag': code})
                 .toList(),
           };
         }).toList(),
@@ -284,7 +287,7 @@ class NovFile {
         final created = plot.addStatus(
           projectId: project.id,
           title: status['title']?.toString() ?? 'Status',
-          colour: (status['color'] as num?)?.toInt() ?? 0xFF9E9E9E,
+          colour: colourFromStored((status['color'] as num?)?.toInt() ?? 0xFF9E9E9E),
           code: code,
         );
         statusIdsByCode[code] = created.id;
@@ -303,7 +306,7 @@ class NovFile {
         final created = plot.addSubplot(
           projectId: project.id,
           title: subplot['title']?.toString() ?? 'Subplot',
-          colour: (subplot['color'] as num?)?.toInt() ?? 0xFF9E9E9E,
+          colour: colourFromStored((subplot['color'] as num?)?.toInt() ?? 0xFF9E9E9E),
           code: code,
         );
         subplotIdsByCode[code] = created.id;
@@ -316,10 +319,13 @@ class NovFile {
       final categoryRaw = (body['categories'] as List?) ?? const [];
       for (final raw in categoryRaw.whereType<Map>()) {
         final category = Map<String, dynamic>.from(raw);
+        final categoryCode = category['code']?.toString();
         final createdCategory = plot.createCategory(
           projectId: project.id,
           title: category['title']?.toString() ?? 'Category',
-          colour: (category['color'] as num?)?.toInt() ?? 0xFF9E9E9E,
+          colour: colourFromStored((category['color'] as num?)?.toInt() ?? 0xFF9E9E9E),
+          code: categoryCode,
+          ranking: (category['ranking'] as num?)?.toInt(),
         );
         final elementIdsByCode = <String, int>{};
         for (final groupRaw in ((category['metadata_groups'] as List?) ?? const []).whereType<Map>()) {
@@ -327,6 +333,7 @@ class NovFile {
           final createdGroup = plot.addMetadataGroup(
             categoryId: createdCategory.id,
             title: group['title']?.toString() ?? 'General',
+            code: group['code']?.toString(),
           );
           for (final elementRaw
               in ((group['metadata_elements'] as List?) ?? const []).whereType<Map>()) {
@@ -336,17 +343,23 @@ class NovFile {
               groupId: createdGroup.id,
               title: element['title']?.toString() ?? 'Field',
               isRelevant: element['is_relevant'] == true,
+              code: code,
             );
             elementIdsByCode[code] = created.id;
           }
         }
+        final tagIdsByCode = <String, int>{};
         for (final tagRaw in ((category['tags'] as List?) ?? const []).whereType<Map>()) {
           final tag = Map<String, dynamic>.from(tagRaw);
-          plot.addTag(
-            categoryId: createdCategory.id,
-            title: tag['title']?.toString() ?? 'Tag',
-            colour: (tag['color'] as num?)?.toInt() ?? 0xFF9E9E9E,
-          );
+          final tagCode = tag['code']?.toString() ?? CodeGen.next();
+          tagIdsByCode[tagCode] = plot
+              .addTag(
+                categoryId: createdCategory.id,
+                title: tag['title']?.toString() ?? 'Tag',
+                colour: colourFromStored((tag['color'] as num?)?.toInt() ?? 0xFF9E9E9E),
+                code: tagCode,
+              )
+              .id;
         }
         for (final itemRaw in ((category['items'] as List?) ?? const []).whereType<Map>()) {
           final item = Map<String, dynamic>.from(itemRaw);
@@ -357,6 +370,7 @@ class NovFile {
             synopsis: item['synopsis'] as String?,
             text: item['text'] as String?,
             ranking: (item['ranking'] as num?)?.toInt(),
+            code: item['code']?.toString(),
           );
           if ((item['code'] as String?) != null) {
             itemIdsByCode[item['code'] as String] = createdItem.id;
@@ -369,21 +383,32 @@ class NovFile {
               plot.setItemMetadataValue(createdItem.id, elementId, meta['value']?.toString() ?? '');
             }
           }
-          for (final nameRaw in ((item['names'] as List?) ?? const []).whereType<Map>()) {
-            final name = Map<String, dynamic>.from(nameRaw);
-            final value = name['name']?.toString();
-            if (value != null && value.isNotEmpty) plot.addName(createdItem.id, value);
+          for (final nameRaw in _maps(item, 'item_names', 'names')) {
+            final value = nameRaw['name']?.toString();
+            if (value != null && value.isNotEmpty) {
+              // Alias codes are preserved because scene mentions embed them.
+              plot.addName(createdItem.id, value, code: nameRaw['code']?.toString());
+            }
           }
-          for (final noteRaw in ((item['notes'] as List?) ?? const []).whereType<Map>()) {
-            final note = Map<String, dynamic>.from(noteRaw);
-            final text = note['text']?.toString();
+          for (final noteRaw in _maps(item, 'item_notes', 'notes')) {
+            final text = noteRaw['text']?.toString();
             if (text != null && text.isNotEmpty) plot.addNote(createdItem.id, text);
           }
-          for (final pictureRaw in ((item['pictures'] as List?) ?? const []).whereType<Map>()) {
-            final picture = Map<String, dynamic>.from(pictureRaw);
-            final name = picture['name']?.toString();
+          for (final pictureRaw in _maps(item, 'item_pictures', 'pictures')) {
+            final name = pictureRaw['name']?.toString();
             if (name != null && name.isNotEmpty) plot.addPicture(createdItem.id, name);
           }
+          final itemTagIds = <int>{};
+          for (final tagRaw in ((item['item_tags'] as List?) ?? const []).whereType<Map>()) {
+            final code = Map<String, dynamic>.from(tagRaw)['tag']?.toString();
+            final tagId = tagIdsByCode[code];
+            if (tagId != null) itemTagIds.add(tagId);
+          }
+          for (final legacy in ((item['tags'] as List?) ?? const []).whereType<String>()) {
+            final tagId = tagIdsByCode[legacy];
+            if (tagId != null) itemTagIds.add(tagId);
+          }
+          if (itemTagIds.isNotEmpty) plot.setItemTags(createdItem.id, itemTagIds);
         }
       }
 
@@ -394,9 +419,8 @@ class NovFile {
           final item = Map<String, dynamic>.from(itemRaw);
           final itemId = itemIdsByCode[item['code']?.toString()];
           if (itemId == null) continue;
-          for (final relRaw
-              in ((item['relationships'] as List?) ?? const []).whereType<Map>()) {
-            final rel = Map<String, dynamic>.from(relRaw);
+          for (final relRaw in _maps(item, 'item_relationships', 'relationships')) {
+            final rel = relRaw;
             final otherId = itemIdsByCode[rel['other_item']?.toString()];
             if (otherId == null || otherId == itemId) continue;
             plot.addRelationship(
@@ -412,6 +436,7 @@ class NovFile {
       final sceneIdsByCode = <String, int>{};
       for (final raw in ((body['scenes'] as List?) ?? const []).whereType<Map>()) {
         final scene = Map<String, dynamic>.from(raw);
+        final code = scene['code']?.toString();
         final created = scenes.create(
           projectId: project.id,
           title: scene['title']?.toString() ?? 'Scene',
@@ -419,22 +444,20 @@ class NovFile {
           synopsis: scene['synopsis'] as String?,
           text: scene['text'] as String?,
           ranking: (scene['ranking'] as num?)?.toInt(),
+          code: code,
         );
-        final code = scene['code']?.toString();
         if (code != null) sceneIdsByCode[code] = created.id;
         for (final attachRaw in ((scene['scene_items'] as List?) ?? const []).whereType<Map>()) {
           final attach = Map<String, dynamic>.from(attachRaw);
           final itemId = itemIdsByCode[attach['code']?.toString()];
           if (itemId != null) scenes.attachItem(created.id, itemId);
         }
-        for (final noteRaw in ((scene['notes'] as List?) ?? const []).whereType<Map>()) {
-          final note = Map<String, dynamic>.from(noteRaw);
-          final text = note['text']?.toString();
+        for (final noteRaw in _maps(scene, 'scene_notes', 'notes')) {
+          final text = noteRaw['text']?.toString();
           if (text != null && text.isNotEmpty) scenes.addNote(created.id, text);
         }
-        for (final pictureRaw in ((scene['pictures'] as List?) ?? const []).whereType<Map>()) {
-          final picture = Map<String, dynamic>.from(pictureRaw);
-          final name = picture['name']?.toString();
+        for (final pictureRaw in _maps(scene, 'scene_pictures', 'pictures')) {
+          final name = pictureRaw['name']?.toString();
           if (name != null && name.isNotEmpty) scenes.addPicture(created.id, name);
         }
         final links = <int, String>{};
@@ -507,6 +530,7 @@ class NovFile {
         title: sectionMap['title']?.toString() ?? 'Section',
         synopsis: sectionMap['synopsis'] as String?,
         isCompiled: sectionMap['is_compiled'] != false,
+        code: sectionMap['code']?.toString(),
       );
       sections.update(section.id, ranking: (sectionMap['ranking'] as num?)?.toInt() ?? ranking);
       ranking++;
@@ -532,6 +556,13 @@ class NovFile {
   }
 
   int importString(String content) => importParsed(parse(content));
+}
+
+/// Reads a list of objects that may appear under its reference name or the legacy one.
+List<Map<String, dynamic>> _maps(Map<String, dynamic> source, String primary, String legacy) {
+  final raw = source[primary] ?? source[legacy];
+  if (raw is! List) return const [];
+  return raw.whereType<Map>().map((e) => Map<String, dynamic>.from(e)).toList(growable: false);
 }
 
 class ParsedNov {

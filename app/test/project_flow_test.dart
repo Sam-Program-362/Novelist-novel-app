@@ -311,19 +311,22 @@ void main() {
       book = books.byId(bookId)!;
     });
 
-    CompiledBook build(CompileFormat format) => buildCompiledBook(
-          book: book,
-          entries: sections.manuscript(bookId),
-          scenesById: {for (final s in scenes.list(projectId)) s.id: s},
-          mentionValues: plot.mentionLabels(projectId),
-          options: CompileOptions(format: format),
-        );
+    CompiledBook build(CompileFormat format, {CompileOptions? options}) {
+      final effective = options ?? CompileOptions(format: format);
+      return buildCompiledBook(
+        book: book,
+        entries: sections.manuscript(bookId),
+        scenesById: {for (final s in scenes.list(projectId)) s.id: s},
+        mentionValues: plot.mentionLabels(projectId),
+        options: effective,
+      );
+    }
 
     test('html export contains only attached scenes and resolves mentions', () {
       final compiled = build(CompileFormat.html);
       final document = Compiler.compile(compiled, const CompileOptions(format: CompileFormat.html));
       final html = utf8.decode(document.bytes);
-      expect(html, contains('Compiled Novel'));
+      expect(html, contains('Book 1'));
       expect(html, contains('Chapter One'));
       expect(html, contains('Tom walked to the harbour.'));
       expect(html, contains('A centred line.'));
@@ -366,19 +369,22 @@ void main() {
       expect(xml, contains('Tom walked to the harbour.'));
     });
 
-    test('toggling include toggles changes the compiled output', () {
-      final compiled = build(CompileFormat.html);
-      final withoutScenes = Compiler.compile(
-        compiled,
-        const CompileOptions(
-          format: CompileFormat.html,
-          includeScenes: false,
-          showTableOfContents: false,
-        ),
+    test('toggling include switches changes the compiled output', () {
+      const options = CompileOptions(
+        format: CompileFormat.html,
+        includeScenes: false,
+        showTableOfContents: false,
       );
+      final withoutScenes = Compiler.compile(build(CompileFormat.html, options: options), options);
       final html = utf8.decode(withoutScenes.bytes);
       expect(html, contains('Chapter One'));
       expect(html, isNot(contains('Tom walked to the harbour.')));
+      expect(html, isNot(contains('Contents')));
+
+      // Turning sections off removes the chapter headings as well.
+      const noSections = CompileOptions(format: CompileFormat.html, includeSections: false);
+      final empty = Compiler.compile(build(CompileFormat.html, options: noSections), noSections);
+      expect(utf8.decode(empty.bytes), isNot(contains('Chapter One')));
     });
   });
 }

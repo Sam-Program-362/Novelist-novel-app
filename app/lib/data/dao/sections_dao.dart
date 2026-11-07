@@ -46,6 +46,7 @@ class SectionsDao {
     required String title,
     String? synopsis,
     bool isCompiled = true,
+    String? code,
   }) {
     final siblings = db.select(
       'SELECT COUNT(*) AS c FROM section WHERE section_book_id = ? AND '
@@ -56,7 +57,7 @@ class SectionsDao {
     final id = db.insert('section', {
       'section_book_id': bookId,
       'section_parent_id': parentId,
-      'section_code': CodeGen.next(),
+      'section_code': code ?? CodeGen.next(),
       'section_title': title,
       'section_synopsis': synopsis,
       'section_ranking': ranking,

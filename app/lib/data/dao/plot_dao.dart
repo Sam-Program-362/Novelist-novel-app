@@ -36,14 +36,16 @@ class PlotDao {
     required int projectId,
     required String title,
     required int colour,
+    String? code,
+    int? ranking,
   }) {
-    final ranking = db.count('category', 'category_project_id = ?', [projectId]) + 1;
+    final nextRanking = ranking ?? db.count('category', 'category_project_id = ?', [projectId]) + 1;
     final id = db.insert('category', {
       'category_project_id': projectId,
-      'category_code': CodeGen.next(),
+      'category_code': code ?? CodeGen.next(),
       'category_title': title,
       'category_color': colour,
-      'category_ranking': ranking,
+      'category_ranking': nextRanking,
     });
     return categoryById(id)!;
   }
@@ -87,19 +89,23 @@ class PlotDao {
         .toList(growable: false);
   }
 
-  MetadataGroup addMetadataGroup({required int categoryId, required String title}) {
+  MetadataGroup addMetadataGroup({
+    required int categoryId,
+    required String title,
+    String? code,
+  }) {
     final ranking =
         db.count('metadata_group', 'metadata_group_category_id = ?', [categoryId]) + 1;
     final id = db.insert('metadata_group', {
       'metadata_group_category_id': categoryId,
-      'metadata_group_code': CodeGen.next(),
+      'metadata_group_code': code ?? CodeGen.next(),
       'metadata_group_title': title,
       'metadata_group_ranking': ranking,
     });
     return MetadataGroup(
       id: id,
       categoryId: categoryId,
-      code: '',
+      code: code ?? '',
       title: title,
       ranking: ranking,
     );
@@ -165,12 +171,13 @@ class PlotDao {
     required int groupId,
     required String title,
     bool isRelevant = false,
+    String? code,
   }) {
     final ranking =
         db.count('metadata_element', 'metadata_element_metadata_group_id = ?', [groupId]) + 1;
     final id = db.insert('metadata_element', {
       'metadata_element_metadata_group_id': groupId,
-      'metadata_element_code': CodeGen.next(),
+      'metadata_element_code': code ?? CodeGen.next(),
       'metadata_element_title': title,
       'metadata_element_ranking': ranking,
       'metadata_element_is_relevant': isRelevant ? 1 : 0,
@@ -259,12 +266,13 @@ class PlotDao {
     String? synopsis,
     String? text,
     int? ranking,
+    String? code,
   }) {
     final nextRanking =
         ranking ?? db.count('item', 'item_category_id = ?', [categoryId]) + 1;
     final id = db.insert('item', {
       'item_category_id': categoryId,
-      'item_code': CodeGen.next(),
+      'item_code': code ?? CodeGen.next(),
       'item_title': title,
       'item_synopsis': synopsis,
       'item_text': text,
@@ -553,14 +561,19 @@ class PlotDao {
         .toList(growable: false);
   }
 
-  Tag addTag({required int categoryId, required String title, required int colour}) {
+  Tag addTag({
+    required int categoryId,
+    required String title,
+    required int colour,
+    String? code,
+  }) {
     final id = db.insert('tag', {
       'tag_category_id': categoryId,
-      'tag_code': CodeGen.next(),
+      'tag_code': code ?? CodeGen.next(),
       'tag_title': title,
       'tag_color': colour,
     });
-    return Tag(id: id, categoryId: categoryId, code: '', title: title, colour: colour);
+    return Tag(id: id, categoryId: categoryId, code: code ?? '', title: title, colour: colour);
   }
 
   void updateTag(int id, {String? title, int? colour}) {
