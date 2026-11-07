@@ -105,3 +105,36 @@ Three defects only became visible once the app tree was mounted, which is why th
   them as inline chips; a `TextField` cannot host arbitrary inline widgets, so the display differs
   while the stored document is identical.
 * Add a translation table (ARB or a simple map) once the English strings are frozen.
+
+## Route-parity pass (November 2026)
+
+Triggered by the owner's report that the interface was “not completely correct”. The reference could
+not be driven interactively (see `docs/UI_SPEC.md` for the two attempts and why the canvas web build
+has no clickable DOM), so the route table, drawer entries and menu enums were mined from
+`libapp.so` and implemented one by one.
+
+Newly implemented routes and screens:
+
+| Route | Screen | Tests |
+| --- | --- | --- |
+| `/intro` | `ui/library/intro_screen.dart` — first-launch pages, `Skip`/`Start` | `app_smoke_test` (first launch → library) |
+| `/search?query=` | `ui/search/search_screen.dart` — searches books, scenes and items of the open project | `parity_screens_test` |
+| `/progress` | `ui/progress/progress_screen.dart` — daily words vs. goal, streak, 30-day bars | `parity_screens_test` |
+| `/history` | `ui/history/history_screen.dart` — scene and item versions, `Restore this version` | `parity_screens_test` (both targets, restore round-trip) |
+| `/cloud_library` | `ui/cloud/cloud_library_screen.dart` — Drive/iCloud vendor switch, connect state, send/receive | `parity_screens_test` |
+| `/help_center` | `ui/help/help_center_screen.dart` — FAQ, quick guide, privacy, terms, email support | `parity_screens_test` (injected content) |
+| `/tutorial` | `ui/help/tutorial_screen.dart` — five steps, `End tutorial`, remembered in prefs | `parity_screens_test` |
+| `/easy_mode` | `ui/help/easy_mode_screen.dart` — toggle plus explanation; the drawer keeps Books + Write only | `app_smoke_test` (drawer) |
+
+Supporting changes:
+
+* `core/utils/html_text.dart` reduces the bundled HTML documents to text (the reference renders them
+  in a `HtmlWidget` web view; this build has no web view dependency).
+* `AppSettings` gained `easyMode`, `introSeen`, `tutorialSeen` and `dailyWordGoal`.
+* The project drawer now carries `Search`, `Progress`, `Cloud library`, `Backup`, `Help center`,
+  `Tutorial`, the easy-mode switch and `Settings`; the bookshelf menu carries `Cloud library`,
+  `Tutorial`, `Help center`, `Restore backup`, `Settings`; the item detail app bar opens history.
+* Settings' own FAQ/legal dialogs were replaced by links to the full help centre (one implementation
+  instead of two), and it gained `Tutorial`, `Easy mode` and the daily word goal.
+
+Test baseline is now **56 tests** (49 in the existing suites + 7 in `parity_screens_test.dart`).

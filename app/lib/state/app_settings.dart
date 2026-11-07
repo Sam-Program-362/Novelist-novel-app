@@ -20,6 +20,10 @@ class AppSettings extends ChangeNotifier {
   static const _kAutoCorrection = 'auto_correction';
   static const _kAutoIndentation = 'auto_indentation';
   static const _kGridView = 'library_grid';
+  static const _kEasyMode = 'easy_mode';
+  static const _kIntroSeen = 'intro_seen';
+  static const _kTutorialSeen = 'tutorial_seen';
+  static const _kDailyGoal = 'daily_word_goal';
 
   final SharedPreferences _prefs;
 
@@ -35,6 +39,10 @@ class AppSettings extends ChangeNotifier {
   bool _autoCorrection;
   bool _autoIndentation;
   bool _libraryGridView;
+  bool _easyMode;
+  bool _introSeen;
+  bool _tutorialSeen;
+  int _dailyWordGoal;
 
   AppSettings._(
     this._prefs, {
@@ -50,6 +58,10 @@ class AppSettings extends ChangeNotifier {
     required bool autoCorrection,
     required bool autoIndentation,
     required bool libraryGridView,
+    required bool easyMode,
+    required bool introSeen,
+    required bool tutorialSeen,
+    required int dailyWordGoal,
   })  : _themeMode = themeMode,
         _seed = seed,
         _editorFont = editorFont,
@@ -61,7 +73,11 @@ class AppSettings extends ChangeNotifier {
         _smartEllipsis = smartEllipsis,
         _autoCorrection = autoCorrection,
         _autoIndentation = autoIndentation,
-        _libraryGridView = libraryGridView;
+        _libraryGridView = libraryGridView,
+        _easyMode = easyMode,
+        _introSeen = introSeen,
+        _tutorialSeen = tutorialSeen,
+        _dailyWordGoal = dailyWordGoal;
 
   static Future<AppSettings> load() async {
     final prefs = await SharedPreferences.getInstance();
@@ -80,6 +96,10 @@ class AppSettings extends ChangeNotifier {
       autoCorrection: prefs.getBool(_kAutoCorrection) ?? true,
       autoIndentation: prefs.getBool(_kAutoIndentation) ?? true,
       libraryGridView: prefs.getBool(_kGridView) ?? true,
+      easyMode: prefs.getBool(_kEasyMode) ?? false,
+      introSeen: prefs.getBool(_kIntroSeen) ?? false,
+      tutorialSeen: prefs.getBool(_kTutorialSeen) ?? false,
+      dailyWordGoal: prefs.getInt(_kDailyGoal) ?? 500,
     );
   }
 
@@ -95,6 +115,17 @@ class AppSettings extends ChangeNotifier {
   bool get autoCorrection => _autoCorrection;
   bool get autoIndentation => _autoIndentation;
   bool get libraryGridView => _libraryGridView;
+
+  /// Simplified interface: only the modules a first-time writer needs (see `EasyModeScreen`).
+  bool get easyMode => _easyMode;
+
+  /// The intro pages are shown once, before the library has any project.
+  bool get introSeen => _introSeen;
+
+  /// The guided tutorial can be re-opened from the drawer at any time.
+  bool get tutorialSeen => _tutorialSeen;
+
+  int get dailyWordGoal => _dailyWordGoal;
 
   ThemeData themeFor(Brightness brightness) => AppTheme.build(
         brightness: brightness,
@@ -171,6 +202,30 @@ class AppSettings extends ChangeNotifier {
   Future<void> setLibraryGridView(bool value) async {
     _libraryGridView = value;
     await _prefs.setBool(_kGridView, value);
+    notifyListeners();
+  }
+
+  Future<void> setEasyMode(bool value) async {
+    _easyMode = value;
+    await _prefs.setBool(_kEasyMode, value);
+    notifyListeners();
+  }
+
+  Future<void> setIntroSeen(bool value) async {
+    _introSeen = value;
+    await _prefs.setBool(_kIntroSeen, value);
+    notifyListeners();
+  }
+
+  Future<void> setTutorialSeen(bool value) async {
+    _tutorialSeen = value;
+    await _prefs.setBool(_kTutorialSeen, value);
+    notifyListeners();
+  }
+
+  Future<void> setDailyWordGoal(int value) async {
+    _dailyWordGoal = value;
+    await _prefs.setInt(_kDailyGoal, value);
     notifyListeners();
   }
 }

@@ -1,0 +1,1569 @@
+!important
+"colors" and "colorStops" arguments must have equal length.
+"colors" must have length 2 if "colorStops" is omitted.
+(async)
+(at character
+(sync)
+, character
+, color:
+, fontSize:
+, name:
+, packageName:
+, status:
+, version:
+--WidgetBit.block
+--paddingBlock
+--paddingInlineAfter
+--paddingInlineBefore
+-//advasoft ltd//dtd html 3.0 aswedit + extensions//
+-//as//dtd html 3.0 aswedit + extensions//
+-block-end
+-block-start
+.note.gnu.build-id
+/books
+/categories
+/history
+/intro
+/item/
+/item/:
+/item/:id
+/preview
+/project
+/resumable/upload/drive/v3/files
+/scene/
+/scene/:id
+/settings
+/statuses
+/statuses/:entity/:id
+/statuses/item/
+/statuses/scene/
+/tags/:entity/:id
+/tags/item/
+/tutorial
+/upload/drive/v3/files/
+03f5b6ff0628168c6add41eff71cc5187350c116fcba399291907390cc150a27
+043d93a931d7addb0105074928f8efc22e46403f7460b6a09a04aa38d436e2aa
+07660df64e37877c06fadd82772bf0b384756862df4cb8803f650ffb0ccc5d9e
+0fe41b0ab8956e83de86a6e3e231256443d130de8eadd4b65947ddc5a63bc9a7
+10bd8715faff5541e8cca0b9a0b1e29623fa3e9cd63cb0f60b8530b7fefaddc9
+12fadd2254624b4642d5b1f5cbdac8545ac1b566934182e307b122ae990b98fd
+1431410504da3eadd109a100b7bbbddcea56b710fac0b31c6a08744885c41260
+16dd09e69fb9e809e2280bc12b4ad4b6b33ecfef27faddfffe1366130a3f6ee1
+1add5ecd54327e4f2179180eb9788ea21bff6796d58367e9a36931fe58360ee8
+1df4eae135a596ead987bc66df2fcf2a97b3ecc1715f196ad909d4add7fdc84b
+207ee7fe4341c31dadd1fd90d9de74dc98d38483ae5b236f9e4056054733ef2f
+26559aaedc7f12692d5283193216508e4311352135b94e71c8a0e2add84d941f
+26a132c2c19d36cd8846b819e1e979a5a8836d9714d864f5cadd1dc01081ea05
+279569caddca830ee92ab2ebd02bb73faa12101fd3c452ae5c80bb2effff0e66
+29bc728f68a0690f726528c184284dbff1309d883cae2f9f0bc867d3add6401d
+2dca34caef76e70694f4632d861b09400990ab58ae19459fe98aadd8314f5258
+2e8598f46fa74b6177a699447b8505550334c008484ed6d2313eac0ba369addd
+30959d0aee674a57c2064a0453d3568bf69f436b1add896dc68f5c563c752806
+3124001aa95bc575dd6fdf18dae55f5badd494f468d5bba9460e055889e8d474
+314826591fb181ee5236636add4f5fea1c9a966c6b54e3e95c7f0c3855a4d7e7
+3254557faf01d7b6b2a1b97a48df9ab4943756e18add661cb1188519efd14849
+32f5223943f05df18b728db045334bd10f22c3e732251ee4add3e535c480870e
+387d0d7600e0d88939fff298b095803980a0995853d96924269b58f4eaddfa48
+40848eb21cff56bc04d3e338e7c35e26963fb60b446c7c3dcadd690cf0042b67
+40dadd254939a2660a669fe1e1fee7f4561a5e1b39228c5d90b387691e4a410e
+42f90ec97934919bcba82ebaddbc7eaa47d13118d7d44bb29e5b40f6c1a340e0
+456587f6196fa56d2455b93491e0daf50ad39badd4ccdc31252b56ab6ca2eaed
+48f8b52f7a94e2ac70da894e4be5d5c046d4c86b24d9b0a6322fadd84017660c
+4a43a6f972dabeebadd01a86c262ba48ea84bab715c44f1bcec9c9d18151d816
+4a73c904717317ee1f04ef9b007c5cb8e60dcbf881c75c1c8ac386262ac6add8
+4b848b07d53ca24e871b843e08f50add8197805ec951ab17a4a25ec833adbff1
+517a5f1d02e55c27a2d170dae5dd1dd77a41bd6f73e41f097a5a66fbff6adde7
+5976ea0a093b65066aa15add62004ad659b32c1867006d6914f9ee05188bf855
+5a608c08990cba2dfffa37a9c6c939da0f7db30b42da9824b88c55890dcbaddb
+60adda0adfbc23938b9844589cd69a379fa1c7358f64904128cad16a3392a396
+62b19dd1e30a241639034c72f3b356dd119d76216c5167baaddf856f9f40b25d
+65deb73de0190860defdeb79f802e3026e7ccc784adde01b039328ca879db28f
+667d099c0195b0ff404e03fd1f369295327d5ff209a685add3a3dd49d5697e2f
+6b500722428c12066b7835b014adddc7df356ba4674ecdb7b0889625092b53c7
+6d3b44addb1c8fc89224922238ed34f499ff8b5beb6083bd3e0282c816c44663
+76e573968346128db7addac8e8f954df324d6b22697e038fab8c9b63ee7ddca4
+7e5addea3bfbd32fcbaaafbc037996b318c507b49256d87b733d05010ff1eac5
+81c1fb8d4abb9eadd91b527b07731e63431672426917bf4d230324ba42311abf
+828462a3f6cd76b6d1721fec65288dd944e97f721faa1fb10e1e18c05eadda98
+84399f52701c9c84b662cc9e1fd84306753a5c127af35c8acec6f6db6f9adde4
+84d62cadd82ea02cc0321921e2488c234123a66f6bc3f161607c7bc80808839a
+8539b7a6d80e1ba66e69e4e14c0391674516e86bcca7f2aaeaddbd01f27c1ae8
+866deddb16fff50e1b547811bd14e060231979c2615020ac8d8adda51d66ccc7
+86addaab33d64821a05f256a8a5b5ae7fef93631bc7faccf1a27d102ae6cd6d4
+8add2d7b1ee8fca607961238f84c1bd980f5e817cb19d45b70f62b1f6399c25c
+8add9336376c322f6c37a4415b84ffd85366dd532c12208d308ddbb742a51346
+8ae35e47e9bd5237b96af04f1f2653409babb0d3a63add964bf90c8f02067d69
+8b2456a4769be63a1b5eff85a7cd768add99d5290434ea9cd5161409d70356d7
+90f7414971617a32485873ee82a91846c3dfb665d9fbbd86efa20c8a56091add
+921f4edf95642ee46a453128f2355c4ff1e3d0d8372c22875d654e5add17817a
+926add559de11b5b16704deb02bc731f236ee3a7adfe4e6df27ef8ff4ac4686f
+9459af8e5add9e53e1987687ba7b01d4ff12a705be7880f7b82ebe2690a496ed
+952681e808adde22e6c5a8b4c377f5809c752ad9fbe2044c2f7af189b7039049
+96f683cd80cee448d252be99429ff7d668591d1ad3aac34de527ffadd0caf92d
+97a586646feb606d74bfb0e6c7841edc607d6ecaadd7c81269b116dbd893fcbe
+9d72593c2d53912d6aedbac3f0f8f84197e908addd8a3870be8755efeb3d2816
+9e328e6e5780163add49cc0ac59e8b2c77e1c48e00333a766d0c1ce818cee547
+@extends expecting simple selector name
+@loader-overlay/container-for-overlay-color
+Accedi con Apple iCloud*
+Accedi con Google Drive
+AccessibilityFocusBlockType.
+Accesso a Apple iCloud non effettuato o Apple iCloud Drive disattivato
+Accetto la politica sulla privacy
+Add book
+Add category
+Add item
+Add metadata element
+Add metadata group
+Add name"
+Add note
+Add picture
+Add project
+Add relationship
+Add scene
+Add section
+Add status
+Add subplot
+Add subsection
+Add tag
+Added
+Additional error:
+Adicionar categoria
+Adicionar relacionamento
+Adicionar status
+Aggiungi categoria
+Agregar categor
+Ajouter section
+Ajouter sous-section
+Akhiri tutorial
+All colors are grayscale, no chroma.
+Already waiting for next.
+An async operation is currently pending
+AnimationStatus.
+Antic Didone
+AnticDidone
+Apple iCloud
+Apple iCloud Verbindungsfehler
+Apple iCloud connection error
+Apple iCloud ou Apple iCloud Drive d
+AppleICloudClient
+ApplicationNotes
+Archive
+Archiver
+Are you sure you want to delete the entire book?
+Are you sure you want to delete the entire project?
+Are you sure you want to delete?
+Arquivo de backup inv
+At least one section is required to compile
+Atkinson Hyperlegible Next
+AtkinsonHyperlegibleNext
+Attempt to execute code removed by Dart AOT compiler (TFA)
+Attempting lightweight authentication...
+Attempting to start a drag on a non-visible item
+Au moins une section est requise pour compiler
+Aucune section
+AudioSurroundModeNext
+Aus Cloud empfangen
+Authentication event received.
+Authorize Google Drive
+Autoriser Google Drive
+Autorizar Google Drive
+Autorizza Google Drive
+Backup
+Backup wiederherstellen
+Backuppa
+Backuppato
+Bad length for DQT block
+Bahasa Indonesia
+BhuTukaExpandedOne
+Bitcount Prop Double
+Bitcount Prop Double Ink
+Bitcount Prop Single
+Bitcount Prop Single Ink
+BitcountPropDouble
+BitcountPropDoubleInk
+BitcountPropSingle
+BitcountPropSingleInk
+Bitte geben Sie einen Namen ein
+Black And White Picture
+BlackAndWhitePicture
+Blocksatz
+BookMenuAction.
+BookPopupMenuAction.
+BookShelfMenuAction.
+BookSortField.
+BookshelfView
+Broadcast Event "
+BrowserSearch
+Buch exportieren und teilen
+ButtonTextTheme.
+CREATE TABLE book(
+CREATE TABLE category(
+CREATE TABLE item(
+CREATE TABLE project(
+CREATE TABLE scene(
+CREATE TABLE section(
+CREATE TABLE status(
+CREATE TABLE subplot(
+CREATE TABLE tag(
+Cambiar ao modo de introduci
+CameraOwnerName
+Can't insert new lines in block.
+Cancel
+Cancelar
+Cannot add event after closing
+Cannot add event while adding a stream
+Cannot add new events after calling close
+Cannot add new events while doing an addStream
+Cannot add to a fixed-length list
+Cannot add to an unmodifiable list
+Cannot close file
+Cannot delete file
+Cannot delete link
+Cannot find category.
+Cannot fire new event. Controller is already firing an event
+Cannot insert a scene without an available status.
+Cannot insert an item without an available status.
+Cannot open file
+Cannot process start stag in text phase
+Cannot read version
+Cannot remove from a fixed-length list
+Cannot remove from an unmodifiable list
+Cannot rename file to '
+Canvas::Create
+Canvas::drawPicture
+Canvas::getSaveCount
+Canvas::save
+Canvas::saveLayer
+Canvas::saveLayerWithoutBounds
+Canvia a introducci
+CapsLock
+Categor
+Categoria
+Categorias
+Categorie
+Categories
+Category
+Characters
+Characters remaining after date parsing in
+Clear cover
+Client is closed
+ClipboardStatus.
+Close
+CloseCommand()
+ClosedCaptionToggle
+Cloud ausw
+Cloud client set:
+Cloud connect
+Cloud connected
+Cloud connection received:
+Cloud connection:
+Cloud connesso
+Cloud d
+Cloud disconnected
+Cloud disconnesso
+Cloud getrennt
+Cloud library
+Cloud nicht verbunden
+Cloud non connect
+Cloud non connesso
+Cloud not connected
+Cloud terhubung
+Cloud terputus
+Cloud tidak terhubung
+Cloud vendor selected:
+Cloud verbunden
+Cloud-Bibliothek
+CloudLibraryMenuAction.
+CloudVendor.
+Codec::getNextFrame
+Color(0x
+ColorF0Red
+ColorF1Green
+ColorF2Yellow
+ColorF3Blue
+ColorF4Grey
+ColorF5Brown
+ColorFilter::Create
+ColorFilter::initLinearToSrgbGamma
+ColorFilter::initMatrix
+ColorFilter::initSrgbToLinearGamma
+ColorMap
+ColorResponseUnit
+ColorSpace
+ColorSpace.
+Compatibile con Word, LibreOffice e OpenOffice
+Compatible avec Word, LibreOffice et OpenOffice
+Compatible con Word, LibreOffice y OpenOffice
+Compatible with Word, LibreOffice, and OpenOffice
+Connect to cloud
+ConnectToCloudView
+Connection attempt cancelled, host:
+Connection closed before data was received
+Connection closed before full body was received
+Connection closed before full header was received
+Connection closed before response was received
+Connection closed while receiving data
+Connetti al cloud
+Contagem de palavras
+Contains invalid characters.
+ContextMenu.onPerformCustomAction
+Control character in string
+Could not delete last status
+Could not move items to first status.
+Could not parse font-size:
+Cover
+Cover entfernen
+Cover festlegen
+Covered By Your Grace
+CoveredByYourGrace
+Create a book with the Novel standard template
+Create a scene and add some text
+Create a section and attach one or more scenes
+Create book
+Create database version
+Create scene
+Create section
+Create template
+Current database version:
+Custom
+Custom 1
+Custom 10
+Custom 2
+Custom 3
+Custom 4
+Custom 5
+Custom 6
+Custom 7
+Custom 8
+Custom 9
+CustomRendered
+Cute Font
+CuteFont
+DELETE
+DELETE FROM
+Dark
+Darker Grotesque
+DarkerGrotesque
+DartRuntimeHooks::ScheduleMicrotask
+Data on closed connection
+Database created
+Default Material You theme at 2021 launch.
+Deferred library
+Delete
+Deleted enum value from
+Description
+Description de la maison et d
+DetailedApiRequestError(status:
+Device name
+Device name from configuration:
+DeviceNameProvider
+DeviceSettingDescription
+Die Backup-Funktion befindet sich jetzt im B
+Dienstag
+Diese Version wiederherstellen
+Dikirim ke Cloud
+Disconnect from cloud
+Disconnetti dal cloud
+Diterima dari Cloud
+DocumentName
+Done
+Donegal One
+DonegalOne
+Donnerstag
+DownloadStatus.
+Drive
+Dropped duplicate attribute on tag.
+Duplicate JPG frame data found.
+DuplicatedBookOperation.
+Dynalight
+DynamicLibrary
+Edit
+Edit adegan
+Edit bagian
+Edit book
+Edit buku
+Edit catatan
+Edit category
+Edit elemen metadata
+Edit gambar
+Edit grup metadata
+Edit hubungan
+Edit item
+Edit kategori
+Edit metadata element
+Edit metadata group
+Edit nama
+Edit name
+Edit note
+Edit picture
+Edit project
+Edit proyek
+Edit relationship
+Edit scene
+Edit section
+Edit status
+Edit subplot
+Edit tag
+Edita
+EditableText-
+Editar
+Editar categoria
+Editar cena
+Editar elemento
+Editar elemento de metadados
+Editar elemento de metadatos
+Editar escena
+Editar estado
+Editar etiqueta
+Editar grupo de metadados
+Editar grupo de metadatos
+Editar imagem
+Editar imagen
+Editar libro
+Editar livro
+Editar nombre
+Editar nome
+Editar nota
+Editar relaci
+Editar relacionamento
+Editar se
+Editar secci
+Editar status
+Editar subtrama
+Editor
+Editore
+Edu AU VIC WA NT Guides
+EduAUVICWANTGuides
+Elegir color
+Element %(name)s not allowed in a non-html context
+Empty IP address
+End tag (%(name)s) seen too early. Expected other end tag.
+End tag (%(name)s) seen too early. Ignored.
+End tag contains unexpected attributes.
+End tag contains unexpected self-closing flag.
+End tutorial
+Envoyer vers le cloud
+Erreur de connexion Apple iCloud
+Erreur de connexion Google Drive
+Error event raised in event handler : error condition has been reset
+Errore di connessione di Apple iCloud
+Errore di connessione di Google Drive
+Eventi
+Eventos
+Events
+ExifVersion
+Expected a name but was
+Expected closing tag. Unexpected character '%(data)s' found.
+Expected closing tag. Unexpected end of file.
+Expected name
+Expected tag name. Got something else instead
+Export
+Export and share
+Export and share a book in EPUB, ODT or HTML format
+Export and share book
+Exporta e partilha um livro em formato EPUB, ODT ou HTML
+Exporta y comparte un libro en formato EPUB, ODT o HTML
+Exportado
+Exportar
+Exportar e partilhar
+Exportar e partilhar livro
+Exportar y compartir
+Exportar y compartir libro
+Exported
+Exporter
+Exporter et partager
+Exporter et partager livre
+Exportez et partagez un livre au format EPUB, ODT ou HTML
+Exportieren
+Exportieren und Teilen
+Exportieren und teilen Sie ein Buch im EPUB-, ODT- oder HTML-Format
+Exportiert
+ExrChannelName.
+ExrCompressorType.
+ExtraLight
+FROM book
+FROM category
+FROM item
+FROM project
+FROM scene
+FROM section
+FROM status
+FROM subplot
+Facebook page
+Facebook-Seite
+Failed to load dynamic library at path:
+Failed to load font with url
+Failed to load font with url:
+Failed to rasterize a picture:
+File closed
+File di backup non valido
+File is not an OpenEXR image file.
+Fill(color:
+Filter
+FilterQuality.
+Filters
+Finalizar tutorial
+FjordOne
+FlashPixVersion
+Flow Block
+FlowBlock
+FnLock
+FocusHighlightMode.
+FocusHighlightStrategy.
+FontAwesomeSolid
+FontCollection::LoadFontFromList
+FontLoader is already loaded
+FontStyle.
+FontWeight.
+Fontdiner Swanky
+FontdinerSwanky
+For beginners and those who just want to write
+For eBooks and digital reading
+Fotos proporcionadas por
+FragmentProgram::Create
+Freitag
+From online library
+Fully customizable
+GPSStatus
+GPSVersionID
+Geburtsort
+Gentium Book Plus
+GentiumBookPlus
+Goal achievement
+Google Drive
+Google Drive Verbindungsfehler
+Google Drive autorisieren
+Google Drive connection error
+GoogleDriveClient
+Got table cell end tag (%(name)s) while required end tags are missing.
+Goudy Bookletter 1911
+GoudyBookletter1911
+Gradient::Create
+GroupNext
+Guide
+Guide de d
+GuideNextDay
+GuidePreviousDay
+HTTP request failed, statusCode:
+HTTP request failed. Client is already closed.
+Halaman Facebook
+Harap pilih item
+Hash.add() called after close().
+HeadlandOne
+HeroFlightDirection.
+HoltwoodOneSC
+Home description and decor
+I accept the operation can't be undone
+I accept the privacy policy
+I accept the terms and conditions
+I-delete
+ICloudStorage
+ICloudTransferProgressType.
+IPv4 address should contain exactly 4 parts
+IPv4 addresses cannot have a scope ID
+Illegal IPv4 address,
+Illegal IPv6 address, address is too short
+Illegal IPv6 address, an address must contain at most 8 parts
+Illegal IPv6 address, invalid character
+Illegal IPv6 address, invalid start colon
+Illegal IPv6 address, missing part
+Illegal character in path
+Illegal character in path:
+Illegal drive letter
+Illegal path character
+Illegal scheme character
+ImageDescription
+ImageFilter.shader only supported with Impeller rendering engine.
+ImageFilter::Create
+ImageFilter::equals
+ImageFilter::initBlur
+ImageFilter::initColorFilter
+ImageFilter::initComposeFilter
+ImageFilter::initMatrix
+ImageFilter::initShader
+ImageShader::Create
+Imposta scene esistenti
+In Cloud gesendet
+In Cloud senden
+Include items
+Include scenes
+Include sections
+Includi scene
+Inclure sections
+Indonesian
+InkNames
+InstructionsSection
+InterColorProfile
+InternetAddress('
+InternetAddressType:
+InteropVersion
+Introduce a data
+Introduce una fecha
+Introdueix una data
+Introduzir data
+Introverso o estroverso
+Introvert atau ekstrovert
+Introvert or extrovert
+Introverti ou extraverti
+Introvertido o extrovertido
+Introvertido ou extrovertido
+Introvertiert oder extrovertiert
+Invalid "font-weight":
+Invalid Block
+Invalid CSS hsl/hsla color syntax
+Invalid CSS rgb/rgba color syntax
+Invalid Color Cache
+Invalid Component in SOS block
+Invalid HTTP header field name:
+Invalid IPv6 address with scope ID
+Invalid IPvFuture address character
+Invalid SOS block
+Invalid backup file
+Invalid base64 padding, padded length must be multiple of four, is
+Invalid character
+Invalid character in attribute name
+Invalid color type:
+Invalid encoding before padding
+Invalid fontUrl:
+Invalid header field name, with
+Invalid internet address
+Invalid key in layer additional data
+Invalid padding character
+Invalid response for resumable upload attempt (status was:
+Invalid response line, failed to parse HTTP version
+Invalid response status code with
+Invalid response, invalid HTTP version
+Invalid response, status code is over 3 digits
+Invalid status code
+Invia al cloud
+Inviato al cloud
+Item
+ItemPopupMenuAction.
+Items
+JsonReader is closed
+Keine Namen zum Anzeigen
+Keine Status zum Anzeigen
+Keine Tags zum Anzeigen
+Kesalahan koneksi Apple iCloud
+Kesalahan koneksi Google Drive
+Ketuk untuk mengedit komentar
+KeyEventDeviceType.
+KeyEventResult.
+KeyEventType.
+KeyboardLockMode.
+Kirim ke Cloud
+Kompatibel dengan Word, LibreOffice, dan OpenOffice
+Kompatibel mit Word, LibreOffice und OpenOffice
+La funzione di backup
+La funzione di invio al cloud
+Language
+LanguageError
+Languages.
+Last sync
+LaunchScreenSaver
+LaunchWordProcessor
+Letzte Synchronisierung
+Library
+LibraryPrefix
+Libreria cloud
+Lieblingsfeiertage
+Life Savers
+LifeSavers
+Light
+LightSource
+Limelight
+Linefont
+ListTileTitleAlignment.
+LiveTextInputStatus.
+Local version
+Locale does not match symbols.NAME
+Locations
+Lock
+LockError:
+LockState.
+Lokale Version
+Long term goals
+Love Light
+LoveLight
+MakerNote
+Manage books
+Maname
+Marital status
+Masuk dengan Apple iCloud
+Masuk dengan Google Drive
+MediaClose
+MediaSkip
+MediaSkipBackward
+MediaSkipForward
+MediaTrackNext
+Mention
+Menu.closed
+Menu.opened
+Merge
+Metadata
+Missing '.' in IPvFuture address
+Missing address in IPvFuture address, host, cursor
+Missing end tag (%(name)s).8
+Missing end tags (%(name)s).
+Missing hex-digit in IPvFuture address
+Missing padding character
+Mit Apple iCloud anmelden
+Mit Cloud verbinden
+Mit Google Drive anmelden
+Modifica categoria
+Modifier section
+Montag
+Montaga
+Montagu Slab
+MontaguSlab
+Mude para a introdu
+Nachname
+Name
+Named entity expected. Got none.
+Namen
+Namen bearbeiten
+Namen hinzuf
+Names
+Namespace
+NativeCallable is already closed.
+NavigateNext
+Navigatiemenu openen
+Nessuna categoria da visualizzare
+Next
+Next month
+NextCandidate
+NextFavoriteChannel
+NextUserProfile
+Nicht bei Apple iCloud angemeldet oder Apple iCloud Drive deaktiviert
+Nickname(s)
+No books to display
+No categories to display
+No error details. HTTP status was:
+No events after a done.
+No font family by name 'Noto Sans' was found.
+No hay categor
+No items to display
+No metadata elements to display
+No metadata groups to display
+No names to display
+No notes to display
+No pictures to display
+No relationships to display
+No scenes to display
+No sections to display
+No statuses to display
+No subplots to display
+No tags to display
+Not a capture group name:
+Not a valid class selector expected .className
+Not signed into Apple iCloud or Apple iCloud Drive disabled
+Note
+Notes
+Noto Color Emoji
+Noto Sans Tagalog
+Noto Sans Tagbanwa
+Noto Znamenny Musical Notation
+NotoColorEmoji
+NotoSansAvestan
+NotoSansTagalog
+NotoSansTagbanwa
+NotoZnamennyMusicalNotation
+Null character in input stream, replaced with U+FFFD.
+NumLock
+NumpadAdd
+NumpadDecimal
+NumpadDivide
+NumpadMemoryAdd
+O recurso de backup agora est
+Open
+Open Sans
+Open navigation menu
+OpenMode.
+OpenSans
+Organize
+Other close relationships
+Otorisasi Google Drive
+OverlayChildLocation.
+Overlock
+Overlock SC
+OverlockSC
+OwnerName
+PSD invalid signature for layer additional data:
+PackageInfo(appName:
+Padding
+PadyakkeExpandedOne
+Page Facebook
+PageName
+Pagina Facebook
+Pagina de Facebook
+Palanquin Dark
+PalanquinDark
+Para eBooks e leitura digital
+Para eBooks y lectura digital
+Paragraph::getClosestGlyphInfo
+Paragraph::getWordBoundary
+ParagraphBuilder::Create
+ParagraphBuilder::addPlaceholder
+ParagraphBuilder::addText
+Partag
+Partager
+Paste item
+Path::Create
+Path::addArc
+Path::addOval
+Path::addPath
+Path::addRRect
+Path::addRSuperellipse
+Path::addRect
+Path::close
+PathOps library was not initialized.
+Per coloro che vogliono pianificare tutto nel dettaglio
+Per eBook e lettura digitale
+Per i principianti e coloro che vogliono solamente scrivere
+Percentage value "
+Perpustakaan Cloud
+Pick color
+Picture
+Picture::dispose
+Picture::toImageSync
+PictureRecorder did not start recording.
+PictureRecorder::Create
+PictureRecorder::endRecording
+Pictures
+Pictures/
+Pilih cloud
+Pilih item
+Pilih status
+Pilih subplot
+Pilih tag
+PlaceholderSpanIndexSemanticsTag(
+PlatformConfigurationNativeApi::DefaultRouteName
+PlatformConfigurationNativeApi::GetScaledFontSize
+PlatformConfigurationNativeApi::ScheduleFrame
+Playwrite AR
+Playwrite AR Guides
+Playwrite AT
+Playwrite AT Guides
+Playwrite AU NSW
+Playwrite AU NSW Guides
+Playwrite AU QLD
+Playwrite AU QLD Guides
+Playwrite AU SA
+Playwrite AU SA Guides
+Playwrite AU TAS
+Playwrite AU TAS Guides
+Playwrite AU VIC
+Playwrite AU VIC Guides
+Playwrite BE VLG
+Playwrite BE VLG Guides
+Playwrite BE WAL
+Playwrite BE WAL Guides
+Playwrite BR
+Playwrite BR Guides
+Playwrite CA
+Playwrite CA Guides
+Playwrite CL
+Playwrite CL Guides
+Playwrite CO
+Playwrite CO Guides
+Playwrite CU
+Playwrite CU Guides
+Playwrite CZ
+Playwrite CZ Guides
+Playwrite DE Grund
+Playwrite DE Grund Guides
+Playwrite DE LA
+Playwrite DE LA Guides
+Playwrite DE SAS
+Playwrite DE SAS Guides
+Playwrite DE VA
+Playwrite DE VA Guides
+Playwrite DK Loopet
+Playwrite DK Loopet Guides
+Playwrite DK Uloopet
+Playwrite DK Uloopet Guides
+Playwrite ES
+Playwrite ES Deco
+Playwrite ES Deco Guides
+Playwrite ES Guides
+Playwrite FR Moderne
+Playwrite FR Moderne Guides
+Playwrite FR Trad
+Playwrite FR Trad Guides
+Playwrite GB J
+Playwrite GB J Guides
+Playwrite GB S
+Playwrite GB S Guides
+Playwrite HR
+Playwrite HR Guides
+Playwrite HR Lijeva
+Playwrite HR Lijeva Guides
+Playwrite HU
+Playwrite HU Guides
+Playwrite ID
+Playwrite ID Guides
+Playwrite IE
+Playwrite IE Guides
+Playwrite IN
+Playwrite IN Guides
+Playwrite IS
+Playwrite IS Guides
+Playwrite IT Moderna
+Playwrite IT Moderna Guides
+Playwrite IT Trad
+Playwrite IT Trad Guides
+Playwrite MX
+Playwrite MX Guides
+Playwrite NG Modern
+Playwrite NG Modern Guides
+Playwrite NL
+Playwrite NL Guides
+Playwrite NO
+Playwrite NO Guides
+Playwrite NZ
+Playwrite NZ Guides
+Playwrite PE
+Playwrite PE Guides
+Playwrite PL
+Playwrite PL Guides
+Playwrite PT
+Playwrite PT Guides
+Playwrite RO
+Playwrite RO Guides
+Playwrite SK
+Playwrite SK Guides
+Playwrite TZ
+Playwrite TZ Guides
+Playwrite US Modern
+Playwrite US Modern Guides
+Playwrite US Trad
+Playwrite US Trad Guides
+Playwrite VN
+Playwrite VN Guides
+Playwrite ZA
+Playwrite ZA Guides
+PlaywriteAR
+PlaywriteARGuides
+PlaywriteAT
+PlaywriteATGuides
+PlaywriteAUNSW
+PlaywriteAUNSWGuides
+PlaywriteAUQLD
+PlaywriteAUQLDGuides
+PlaywriteAUSA
+PlaywriteAUSAGuides
+PlaywriteAUTAS
+PlaywriteAUTASGuides
+PlaywriteAUVIC
+PlaywriteAUVICGuides
+PlaywriteBEVLG
+PlaywriteBEVLGGuides"
+PlaywriteBEWAL
+PlaywriteBEWALGuides
+PlaywriteBR
+PlaywriteBRGuides
+PlaywriteCA
+PlaywriteCAGuides
+PlaywriteCL
+PlaywriteCLGuides
+PlaywriteCO
+PlaywriteCOGuides
+PlaywriteCU
+PlaywriteCUGuides
+PlaywriteCZ
+PlaywriteCZGuides
+PlaywriteDEGrund
+PlaywriteDEGrundGuides
+PlaywriteDELA
+PlaywriteDELAGuides
+PlaywriteDESAS
+PlaywriteDESASGuides
+PlaywriteDEVA
+PlaywriteDEVAGuides
+PlaywriteDKLoopet
+PlaywriteDKLoopetGuides
+PlaywriteDKUloopet
+PlaywriteDKUloopetGuides
+PlaywriteES
+PlaywriteESDeco
+PlaywriteESDecoGuides
+PlaywriteESGuides
+PlaywriteFRModerne
+PlaywriteFRModerneGuides
+PlaywriteFRTrad
+PlaywriteFRTradGuides
+PlaywriteGBJ
+PlaywriteGBJGuides
+PlaywriteGBS
+PlaywriteGBSGuides
+PlaywriteHR
+PlaywriteHRGuides
+PlaywriteHRLijeva
+PlaywriteHRLijevaGuides
+PlaywriteHU
+PlaywriteHUGuides
+PlaywriteID
+PlaywriteIDGuides
+PlaywriteIE
+PlaywriteIEGuides
+PlaywriteIN
+PlaywriteINGuides
+PlaywriteIS
+PlaywriteISGuides
+PlaywriteITModerna
+PlaywriteITModernaGuides
+PlaywriteITTrad
+PlaywriteITTradGuides
+PlaywriteMX
+PlaywriteMXGuides
+PlaywriteNGModern
+PlaywriteNGModernGuides
+PlaywriteNL
+PlaywriteNLGuides
+PlaywriteNO
+PlaywriteNOGuides
+PlaywriteNZ
+PlaywriteNZGuides
+PlaywritePE
+PlaywritePEGuides
+PlaywritePL
+PlaywritePLGuides
+PlaywritePT
+PlaywritePTGuides
+PlaywriteRO
+PlaywriteROGuides
+PlaywriteSK
+PlaywriteSKGuides
+PlaywriteTZ
+PlaywriteTZGuides
+PlaywriteUSModern
+PlaywriteUSModernGuides
+PlaywriteUSTrad
+PlaywriteUSTradGuides
+PlaywriteVN
+PlaywriteVNGuides
+PlaywriteZA
+PlaywriteZAGuides
+Please create a project before
+Please enter a device name
+Please enter a name
+Please enter a synopsis
+Please enter a title
+Please select an item
+Please select at least one section
+Plot
+PngFilter.
+PngFilterType.
+Pointer address must be aligned to a multiple of the element size (2).
+Politica sulla privacy
+Pour eBooks et lecture num
+Preview
+Privacy policy
+PrivacyScreenToggle
+ProjectMenuAction.
+ProjectSortField.
+Prop
+PropertiX
+Props
+PsdColorMode.
+Putuskan sambungan dari Cloud
+Quick guide
+RSuperellipse::Create
+RawSocketEvent.closed
+RawSocketEvent.read
+RawSocketEvent.readClosed
+RawSocketEvent.write
+Reading from a closed socket
+Receive from cloud
+Received from cloud
+Recevoir du cloud
+RecordSpeedNext
+Relacionamentos
+Relationships
+Remote version
+Remote-Version
+Remove
+Reordenar categor
+Reordenar categorias
+Reordenar status
+Reorder books
+Reorder categories
+Reorder items
+Reorder metadata elements
+Reorder metadata groups
+Reorder relationships
+Reorder scenes
+Reorder sections
+Reorder statuses
+Reorder subplots
+Reordernar relacionamentos
+Restaurar backup
+Restaurer cette version
+Restore backup
+Restore from history
+Restore this version
+Resumable upload: Uploading a chunk resulted in status
+ReusableFragmentShader::Create
+ReusableFragmentShader::ValidateImageFilter
+Ricevi dal cloud
+Ricevuto dal cloud
+Riordina categorie
+Riordina scene
+Riordina status
+Ripristina backup
+Ripristina questa versione
+SAVEPOINT s
+SELECT * FROM item
+SELECT * FROM scene
+SELECT * FROM status
+SELECT * FROM subplot
+SELECT * FROM tag
+SELECT item.*
+SELECT tag.*
+Sambungkan ke Cloud
+Sample book
+Samstag
+Save
+Saved
+Scegli colore
+Scene
+Scene::dispose
+Scene::toImageSync
+SceneBuilder::Create
+SceneBuilder::addPicture
+SceneBuilder::addPlatformView
+SceneBuilder::addRetained
+SceneBuilder::addTexture
+SceneBuilder::build
+SceneBuilder::pop
+SceneBuilder::pushBackdropFilter
+SceneBuilder::pushClipPath
+SceneBuilder::pushClipRRect
+SceneBuilder::pushClipRect
+SceneBuilder::pushImageFilter
+SceneBuilder::pushOffset
+SceneBuilder::pushOpacity
+SceneBuilder::pushTransformHandle
+SceneCaptureType
+ScenePopupMenuAction.
+SceneType
+Scenes
+Schedule
+SchedulerPhase.
+Scheme not starting with alphabetic character
+Schulnoten
+ScreenModeNext#
+ScriptCategory.
+ScrollLock
+Se connecter au Cloud
+Se connecter avec Apple iCloud
+Se connecter avec Google Drive
+Search
+Search Web
+SearchWeb.invoke
+SectionPopupMenuAction.
+Sections
+Selecione relacionamentos
+Selecione status
+Select book
+Select cloud
+Select item
+Select items
+Select language
+Select parent section
+Select relationships
+Select scenes
+Select status
+Select statuses
+Select subplots
+Select tags
+SelectionStatus.
+Seleziona cloud
+Seleziona scene
+Sem categoria para exibir
+Sem relacionamentos para exibir
+Sem status para exibir
+SemanticsUpdateBuilder::Create
+SemanticsUpdateBuilder::updateCustomAction
+Send to cloud
+Sent to cloud
+Sertakan item
+Server response has no Location header for redirect
+Set cover
+Set device name
+Set existing scenes
+Set goals
+Set language
+Set theme
+Settings
+SettingsRepository
+Shadows Into Light
+Shadows Into Light Two
+ShadowsIntoLight
+ShadowsIntoLightTwo
+ShareResultStatus.
+Shfaq menyn
+Short term goals
+Show on item's card
+Sign in canceled
+Sign in with Apple iCloud
+Sign in with Google Drive
+Sink is closed
+Sisestage kuup
+Skipped guessing child size on tight height (preferred
+Skipta yfir
+SnackBarClosedReason.
+Socket Event Handler
+Socket closed before request was sent
+Socket has been closed
+Solidus (/) incorrectly placed in tag.
+Sonntag
+Sorts Mill Goudy
+SortsMillGoudy
+Source contains invalid character with code point:
+SpecialGothicCondensedOne
+SpecialGothicExpandedOne
+Spitzname(n)
+SqliteSynchronous.
+Status
+Status ausw
+Status bearbeiten
+Status hinzuf
+Status neu ordnen
+Status pernikahan
+Statuses
+Stream is already closed
+StreamSink is closed
+Stroke(color:
+SubjectLocation
+Subplot
+Subplots
+Subscribed to Event "
+Subtitle
+Surname
+SvgTheme(currentColor:
+SymbolLock
+Syncopate
+Synopsis
+SystemChrome.setApplicationSwitcherDescription
+TVAudioDescription
+TVAudioDescriptionMixDown
+TVAudioDescriptionMixUp
+TaG@
+TaGA
+TaGE
+TaGk
+Table of contents title&
+Tag bearbeiten
+Tag hinzuf
+TagA
+TagD
+TagK
+Tagalog
+Tagasi
+Tage
+Tagesschrift
+Tagk
+Taglia
+Tags
+Tags ausw
+Tai Heritage Pro
+TaiHeritagePro
+Tambah elemen metadata
+Tambah grup metadata
+Tambah item
+Tambah status
+Tambah subplot
+Tambah tag
+Tampilkan di kartu item
+Tap to edit comment
+Tempel item
+Template
+Terima dari Cloud
+Termina tutorial
+Terms and conditions
+Tertiary palette is analogue of source color.
+Tertiary palette is complement of source color.
+TextBlockSlot.
+TextEditorPopupMenuAction.
+TextInput.setEditableSizeAndTransform
+TextInput.setEditingState
+TextInputAction.continueAction
+TextInputAction.done
+TextInputAction.emergencyCall
+TextInputAction.next
+TextInputAction.search
+TextInputClient.onConnectionClosed
+TextInputClient.removeTextPlaceholder
+TextInputClient.updateEditingState
+TextInputClient.updateEditingStateWithDeltas
+TextInputClient.updateEditingStateWithTag
+The Girl Next Door
+The length of the Uint8list returned by the custom RNG must be 16.
+The provided data does not match the currently supported version.
+The ticker was canceled before the "orCancel" property was first used.
+TheGirlNextDoor
+Theme
+Theme mode from configuration:
+ThemeMode.
+ThemeModeProvider
+Themen
+Themes
+There should always be a block for a valid offset.
+There should always be an index for a valid block.
+There should always be an offset for a valid block.
+This connection pool is closed
+This database has already been closed
+This element (%(name)s) has no end tag.
+This is a searchable index. Enter search keywords:
+This ticker was canceled:
+Tidak ada elemen metadata untuk ditampilkan
+Tidak ada grup metadata untuk ditampilkan
+Tidak ada item untuk ditampilkan
+Tidak ada status untuk ditampilkan
+Tidak ada subplot untuk ditampilkan
+Tidak ada tag untuk ditampilkan
+Tidak masuk ke Apple iCloud atau Apple iCloud Drive dinonaktifkan
+Title
+Toca para editar el comentario
+Tokens and palettes match source color.
+Toque para editar o coment
+Trailing solidus not allowed on element %(name)s
+Tutorial
+Tutorial beenden
+Unable to parse character data.
+Unarchive
+Uneven calls to startSync and finishSync
+Unexpected address type
+Unexpected character
+Unexpected character after attribute name.
+Unexpected character after attribute value.
+Unexpected character in DOCTYPE.
+Unexpected character in comment found.
+Unexpected character in unquoted attribute
+Unexpected characters in the frameset phase. Characters ignored.
+Unexpected end of file in DOCTYPE name.
+Unexpected end of file in attribute name.
+Unexpected end of file in the tag name.
+Unexpected end of file. Expected DOCTYPE name.
+Unexpected end of file. Expected attribute name instead.
+Unexpected end of file. Expected end tag (%(name)s).
+Unexpected end tag (%(gotName)s). Expected end tag (%(expectedName)s).
+Unexpected end tag (%(gotName)s). Missing end tag (%(expectedName)s).
+Unexpected end tag (%(name)s) after the (implied) root element.
+Unexpected end tag (%(name)s) before html.
+Unexpected end tag (%(name)s) in table context caused voodoo mode.
+Unexpected end tag (%(name)s) in the after frameset phase. Ignored.
+Unexpected end tag (%(name)s) in the select phase. Ignored.
+Unexpected end tag (%(name)s) in the table body phase. Ignored.
+Unexpected end tag (%(name)s) in the table row phase. Ignored.
+Unexpected end tag (%(name)s). Expected DOCTYPE.
+Unexpected end tag (%(name)s). Expected end of file.
+Unexpected end tag (%(name)s). Ignored.
+Unexpected end tag (%(originalName)s). Treated as %(newName)s.
+Unexpected end tag after body(innerHtml)n
+Unexpected end tag token (%(name)s) in the after body phase.
+Unexpected end tag token (%(name)s) in the frameset phase. Ignored.
+Unexpected end tag token (frameset) in the frameset phase (innerHTML).
+Unexpected implied end tag (%(name)s) in the table body phase.
+Unexpected implied end tag (%(name)s) in the table phase.
+Unexpected implied end tag (%(name)s) in the table row phase.
+Unexpected input start tag in the select phase.
+Unexpected non-space characters in table context caused voodoo mode.
+Unexpected non-space characters in the after body phase.
+Unexpected non-space characters in the after frameset phase. Ignored.
+Unexpected non-space characters. Expected DOCTYPE.
+Unexpected non-space characters. Expected end of file.
+Unexpected pointer down event for trackpad
+Unexpected progress event type:
+Unexpected start tag %(name)s. Don't use it!
+Unexpected start tag %(name)s. Ignored.
+Unexpected start tag (%(name)s) in table context caused voodoo mode.
+Unexpected start tag (%(name)s) in the after frameset phase. Ignored.
+Unexpected start tag (%(name)s) that can be in head. Moved.
+Unexpected start tag (%(name)s).
+Unexpected start tag (%(name)s). Expected DOCTYPE.
+Unexpected start tag (%(name)s). Expected end of file.
+Unexpected start tag (%(originalName)s). Treated as %(newName)s.
+Unexpected start tag (%(startName)s) implies end tag (%(endName)s).
+Unexpected start tag head in existing head. Ignored.
+Unexpected start tag token (%(name)s in the select phase. Ignored.
+Unexpected start tag token (%(name)s) in the after body phase.
+Unexpected start tag token (%(name)s) in the frameset phase. Ignored.
+Unexpected table cell start tag (%(name)s) in the table body phase.
+Unexpected type for header named
+Unhandled color mode:
+Unknown color space:
+Unknown key event type:
+Unknown keymap for key events:
+Unknown type tag
+Unlock
+Unnamed:
+Unsupported color mode
+Unsupported color mode (4 components)
+Unsupported downloadStatus:
+Untuk eBook dan bacaan digital
+Urutkan ulang elemen metadata
+Urutkan ulang grup metadata
+Urutkan ulang item
+Urutkan ulang status
+Urutkan ulang subplot
+Version
+Version distante
+Version locale
+Version web
+Versione
+Versione locale
+Versione remota
+Versione web
+VideoModeNext
+Vietnamese
+Von Cloud trennen
+WDXL Lubrifont JP N
+WDXL Lubrifont SC
+WDXL Lubrifont TC
+WDXLLubrifontJPN
+WDXLLubrifontSC
+WDXLLubrifontTC
+Wavefont
+Web version
+Web-Version
+Whole word
+WidgetBit.block#
+Windows paths with drive letter must be absolute
+With other characters
+Word count
+Words
+Write
+Write failed
+Writing to a closed socket
+XPKeywords
+XPTitle
+You can always change your mind in Settings
+You cannot add an error while items are being added from addStream
+You cannot add items while items are being added from addStream
+Zilla Slab Highlight
+ZillaSlabHighlight
+a login com o Apple iCloud
+a login com o Google Drive
+add may only be called once.
+add must be called once.
+asynchronous suspension
+blackMountainView titleLarge
+blackMountainView titleMedium
+blackMountainView titleSmall
+by a synchronously-called image error listener
+by a synchronously-called image listener
+callback must attach a stream listener synchronously
+characters long.
+connecter du Cloud
+d'envoi vers le cloud se trouve maintenant dans la biblioth
+dans le cloud
+dense titleLarge 2014
+dense titleLarge 2021
+dense titleMedium 2014
+dense titleMedium 2021
+dense titleSmall 2014
+dense titleSmall 2021
+display: block
+display: inline-block
+done() must not be called more than once on the same
+during a scheduler callback
+englishLike titleLarge 2014
+englishLike titleLarge 2021
+englishLike titleMedium 2014
+englishLike titleMedium 2021
+englishLike titleSmall 2014
+englishLike titleSmall 2021
+er section
+espandere e visualizzare altri dettagli
+expected element name or universal(*), but found
+ez une section et attachez une ou plusieurs sc
+fileNameOverrides must have the same length as files.
+files(id, name, createdTime, modifiedTime, appProperties)
+for ColorFilter.
+formatStr does not support format character
+fwfh: color
+fwfh: font-family
+fwfh: font-size
+fwfh: font-style
+fwfh: font-weight
+gina do Facebook
+handling status bar action
+html needs to be the first start tag.
+iCloud operation failed
+indicatorPadding insets should be less than Tab Size
+invalid character
+lectionner au moins une section
+lectionner le cloud
+lectionnez section parent
+ltige Backup-Datei
+missing import string
+must be not be greater than the number of characters in the file,
+must match a migration version
+must not be greater than the number of characters in the file,
+n con Apple iCloud
+n con Google Drive
+n de Apple iCloud
+n de Google Drive
+n en Apple iCloud o Apple iCloud Drive est
+name expected
+name must start with a alpha character, but found a number
+name shouldn't end with a '.'
+name shouldn't start with a '.'
+ndar, con categor
+nes ou sections peuvent
+o do Apple iCloud
+o do Google Drive
+o efetuado ou Apple iCloud Drive desativado
+o no Apple iCloud n
+opening the database
+ora nella libreria cloud. Questa opzione di menu verr
+organiser sections
+que cloud
+que cloud. Cette option de menu sera bient
+r Themen, Ereignisse, Charaktere, Orte, Requisiten und Extras
+r eBooks und digitales Lesen
+re synchronisation
+rer un synopsis
+scene esistenti
+skipCount + length
+tall titleLarge 2014
+tall titleLarge 2021
+tall titleMedium 2014
+tall titleMedium 2021
+tall titleSmall 2014
+tall titleSmall 2021
+tehersteller/-name, Problembeschreibung, tats
+tenamen ein
+tenamen festlegen
+u du cloud
+vel com Word, LibreOffice e OpenOffice
+visible: no body items
+while closing chunkEvents stream in NetworkImage.load
+while dispatching a non-hit-tested pointer event
+while dispatching a pointer event
+while handling pending events
+while notifying status listeners for
+while pasting text to EditableText
+while resolving a PointerSignalEvent
+while routing a pointer event
+while sending accessibility event
+while setting text input editing state
+whiteMountainView bodyLarge
+whiteMountainView bodyMedium
+whiteMountainView bodySmall
+whiteMountainView displayLarge
+whiteMountainView displayMedium
+whiteMountainView displaySmall
+whiteMountainView headlineLarge
+whiteMountainView headlineMedium
+whiteMountainView headlineSmall
+whiteMountainView labelLarge
+whiteMountainView labelMedium
+whiteMountainView labelSmall
+whiteMountainView titleLarge
+whiteMountainView titleMedium
+whiteMountainView titleSmall
+writeFrom failed

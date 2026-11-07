@@ -30,6 +30,9 @@ class LibraryController extends ChangeNotifier {
   List<Project> get projects =>
       repository.projects.list(field: _sortField, ascending: _ascending);
 
+  /// Re-reads the bookshelf after an external change (cloud listing refresh).
+  void refresh() => notifyListeners();
+
   void setSort(ProjectSortField field, {bool? ascending}) {
     _sortField = field;
     if (ascending != null) _ascending = ascending;

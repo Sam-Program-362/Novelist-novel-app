@@ -61,6 +61,7 @@ the Android project before `local.properties` exists cannot work.
 | Document | Contents |
 | --- | --- |
 | `docs/DATA_MODEL.md` | Every table and column of the reference database, and the `.nov` document format. |
+| `docs/UI_SPEC.md` | Screen-by-screen inventory of the reference: every route, drawer entry, dialog, tab and menu, with the copy recovered from `libapp.so`. |
 | `docs/REFERENCE_APPLICATION_ANALYSIS.md` | What was recovered from the APK, and how (including the limits of that evidence). |
 | `docs/ARCHITECTURE.md` | Layer boundaries and the decisions behind them. |
 | `docs/FEATURE_PARITY_CHECKLIST.md` | Feature-by-feature parity tracking. |

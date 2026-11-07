@@ -6,6 +6,7 @@ import 'state/app_settings.dart';
 import 'state/library_controller.dart';
 import 'state/open_project.dart';
 import 'state/project_controller.dart';
+import 'ui/library/intro_screen.dart';
 import 'ui/library/library_screen.dart';
 
 class NovelistApp extends StatelessWidget {
@@ -31,7 +32,8 @@ class NovelistApp extends StatelessWidget {
             themeMode: appSettings.themeMode,
             theme: appSettings.themeFor(Brightness.light),
             darkTheme: appSettings.themeFor(Brightness.dark),
-            home: const LibraryScreen(),
+            // First launch shows the intro until it is dismissed (`intro_seen` preference).
+            home: appSettings.introSeen ? const LibraryScreen() : const IntroScreen(),
           );
 
           // Always provided, above the [Navigator], so every pushed route can reach the open

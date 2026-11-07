@@ -6,6 +6,7 @@ import '../../core/utils/iterable_x.dart';
 import '../../core/utils/text_doc.dart';
 import '../../models/entities.dart';
 import '../../state/project_controller.dart';
+import '../history/history_screen.dart';
 import '../widgets/common.dart';
 
 /// Full detail of a Plot item: description, metadata, aliases, notes, pictures, relationships and
@@ -113,6 +114,17 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
                 );
                 if (selected != null) controller.updateItem(item.id, statusId: selected);
               },
+            ),
+            IconButton(
+              icon: const Icon(Icons.history),
+              tooltip: S.history,
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(
+                builder: (_) => HistoryScreen(
+                  target: HistoryTarget.item,
+                  id: item.id,
+                  title: '${S.history} · ${item.title}',
+                ),
+              )),
             ),
             IconButton(
               icon: const Icon(Icons.save_outlined),

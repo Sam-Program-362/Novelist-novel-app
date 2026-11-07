@@ -24,7 +24,9 @@ void main() {
   late AppSettings settings;
 
   setUp(() async {
-    SharedPreferences.setMockInitialValues({});
+    // The intro is shown on a real first launch; these tests want the library, and the intro
+    // has its own test below.
+    SharedPreferences.setMockInitialValues({'intro_seen': true});
     settings = await AppSettings.load();
     db = AppDatabase.inMemory();
   });
@@ -51,6 +53,20 @@ void main() {
     expect(status.id, isPositive);
     return project;
   }
+
+  testWidgets('first launch shows the intro, and finishing it opens the library', (tester) async {
+    SharedPreferences.setMockInitialValues({});
+    final fresh = await AppSettings.load();
+    await tester.pumpWidget(NovelistApp(database: db, settings: fresh));
+    await tester.pumpAndSettle();
+
+    expect(find.text(S.introPitch1Title), findsOneWidget);
+    await tester.tap(find.text(S.skip));
+    await settle(tester);
+
+    expect(find.text(S.library), findsOneWidget);
+    expect(fresh.introSeen, isTrue);
+  });
 
   testWidgets('starts on the library with an empty state', (tester) async {
     await tester.pumpWidget(NovelistApp(database: db, settings: settings));
