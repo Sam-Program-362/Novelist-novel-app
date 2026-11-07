@@ -32,7 +32,7 @@ String htmlToText(String html) {
   text = text.replaceAll(RegExp(r'<(script|style|head)[\s\S]*?</\1>', caseSensitive: false), '');
 
   // Headings get their own paragraph plus a blank line so the scanner keeps them apart.
-  text = text.replaceAll(
+  text = text.replaceAllMapped(
     RegExp(r'<h([1-6])[^>]*>([\s\S]*?)</h\1>', caseSensitive: false),
     (m) => '\n\n${m[2]!.trim().toUpperCase()}\n\n',
   );
@@ -49,7 +49,7 @@ String htmlToText(String html) {
   for (final entry in _entities.entries) {
     text = text.replaceAll(entry.key, entry.value);
   }
-  text = text.replaceAll(RegExp(r'&#(\d+);'), (m) {
+  text = text.replaceAllMapped(RegExp(r'&#(\d+);'), (m) {
     final code = int.tryParse(m[1]!);
     return code == null ? m[0]! : String.fromCharCode(code);
   });

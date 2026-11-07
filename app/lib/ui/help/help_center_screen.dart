@@ -103,7 +103,7 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
             : EmptyState(
                 icon: Icons.error_outline,
                 title: S.anErrorOccurred,
-                message: '$_error',
+                subtitle: '$_error',
               ),
       );
     }

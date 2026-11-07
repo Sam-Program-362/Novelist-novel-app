@@ -79,7 +79,7 @@ class _CloudLibraryScreenState extends State<CloudLibraryScreen> {
           IconButton(
             tooltip: S.refresh,
             icon: const Icon(Icons.refresh),
-            onPressed: library.notifyListeners,
+            onPressed: library.refresh,
           ),
         ],
       ),

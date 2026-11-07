@@ -169,7 +169,7 @@ void main() {
   });
 
   testWidgets('history shows the item versions and restores one', (tester) async {
-    final category = PlotDao(db).createCategory(projectId: project.id, title: 'Characters');
+    final category = PlotDao(db).createCategory(projectId: project.id, title: 'Characters', colour: 0xFFE8D5C4);
     final item = PlotDao(db).createItem(
       categoryId: category.id,
       title: 'Keeper',
@@ -195,7 +195,7 @@ void main() {
       statusId: statusId,
       text: 'The keeper climbs the stairs.',
     );
-    final category = PlotDao(db).createCategory(projectId: project.id, title: 'Locations');
+    final category = PlotDao(db).createCategory(projectId: project.id, title: 'Locations', colour: 0xFFCFE0D8);
     PlotDao(db).createItem(
       categoryId: category.id,
       title: 'Lighthouse',
