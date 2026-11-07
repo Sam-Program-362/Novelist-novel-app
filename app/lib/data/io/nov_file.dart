@@ -279,8 +279,12 @@ class NovFile {
         cover: map['cover'] as String?,
       );
 
+      // v5 keeps story data at the top level, v4 wraps it in `revisions[]`; the newest revision is
+      // the story to import. Statuses and subplots live inside it in v4 documents.
+      final body = parsed.storyBody;
+
       final statusIdsByCode = <String, int>{};
-      final statusesRaw = (map['statuses'] as List?) ?? const [];
+      final statusesRaw = (body['statuses'] ?? map['statuses']) as List? ?? const [];
       for (final raw in statusesRaw.whereType<Map>()) {
         final status = Map<String, dynamic>.from(raw);
         final code = status['code']?.toString() ?? CodeGen.next();
@@ -300,7 +304,8 @@ class NovFile {
           statusIdsByCode[code?.toString()] ?? statusIdsByCode.values.first;
 
       final subplotIdsByCode = <String, int>{};
-      for (final raw in ((map['subplots'] as List?) ?? const []).whereType<Map>()) {
+      for (final raw
+          in (((body['subplots'] ?? map['subplots']) as List?) ?? const []).whereType<Map>()) {
         final subplot = Map<String, dynamic>.from(raw);
         final code = subplot['code']?.toString() ?? CodeGen.next();
         final created = plot.addSubplot(
@@ -311,9 +316,6 @@ class NovFile {
         );
         subplotIdsByCode[code] = created.id;
       }
-
-      // v5 keeps the story at the top level; v4 wraps it in revisions[]. Use the newest revision.
-      final body = parsed.storyBody;
 
       final itemIdsByCode = <String, int>{};
       final categoryRaw = (body['categories'] as List?) ?? const [];
