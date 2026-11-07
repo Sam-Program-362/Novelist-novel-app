@@ -103,29 +103,31 @@ class _ExportSheetState extends State<_ExportSheet> {
           children: [
             Text(S.selectAFormat, style: theme.textTheme.titleLarge),
             const SizedBox(height: 8),
-            RadioListTile<CompileFormat>(
-              value: CompileFormat.epub,
+            RadioGroup<CompileFormat>(
               groupValue: _format,
-              contentPadding: EdgeInsets.zero,
-              title: const Text('EPUB'),
-              subtitle: const Text(S.epubDescription),
-              onChanged: (value) => setState(() => _format = value ?? CompileFormat.epub),
-            ),
-            RadioListTile<CompileFormat>(
-              value: CompileFormat.odt,
-              groupValue: _format,
-              contentPadding: EdgeInsets.zero,
-              title: const Text('ODT'),
-              subtitle: const Text(S.odtDescription),
-              onChanged: (value) => setState(() => _format = value ?? CompileFormat.odt),
-            ),
-            RadioListTile<CompileFormat>(
-              value: CompileFormat.html,
-              groupValue: _format,
-              contentPadding: EdgeInsets.zero,
-              title: const Text('HTML'),
-              subtitle: const Text(S.htmlDescription),
-              onChanged: (value) => setState(() => _format = value ?? CompileFormat.html),
+              onChanged: (value) => setState(() => _format = value ?? _format),
+              child: const Column(
+                children: [
+                  RadioListTile<CompileFormat>(
+                    value: CompileFormat.epub,
+                    contentPadding: EdgeInsets.zero,
+                    title: Text('EPUB'),
+                    subtitle: Text(S.epubDescription),
+                  ),
+                  RadioListTile<CompileFormat>(
+                    value: CompileFormat.odt,
+                    contentPadding: EdgeInsets.zero,
+                    title: Text('ODT'),
+                    subtitle: Text(S.odtDescription),
+                  ),
+                  RadioListTile<CompileFormat>(
+                    value: CompileFormat.html,
+                    contentPadding: EdgeInsets.zero,
+                    title: Text('HTML'),
+                    subtitle: Text(S.htmlDescription),
+                  ),
+                ],
+              ),
             ),
             const Divider(),
             SwitchListTile(

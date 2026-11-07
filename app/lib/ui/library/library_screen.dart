@@ -47,21 +47,27 @@ class LibraryScreen extends StatelessWidget {
                     decoration: const InputDecoration(labelText: S.description),
                   ),
                   const SizedBox(height: 16),
-                  RadioListTile<bool>(
-                    value: true,
+                  RadioGroup<bool>(
                     groupValue: useStandardTemplate,
-                    contentPadding: EdgeInsets.zero,
-                    title: const Text('Novel standard template'),
-                    subtitle: const Text('Themes, Events, Characters, Locations, Items, Custom'),
-                    onChanged: (value) => setState(() => useStandardTemplate = value ?? true),
-                  ),
-                  RadioListTile<bool>(
-                    value: false,
-                    groupValue: useStandardTemplate,
-                    contentPadding: EdgeInsets.zero,
-                    title: const Text('Empty template'),
-                    subtitle: const Text('Start from scratch with one status'),
-                    onChanged: (value) => setState(() => useStandardTemplate = value ?? false),
+                    onChanged: (value) =>
+                        setState(() => useStandardTemplate = value ?? true),
+                    child: const Column(
+                      children: [
+                        RadioListTile<bool>(
+                          value: true,
+                          contentPadding: EdgeInsets.zero,
+                          title: Text('Novel standard template'),
+                          subtitle:
+                              Text('Themes, Events, Characters, Locations, Props, Custom'),
+                        ),
+                        RadioListTile<bool>(
+                          value: false,
+                          contentPadding: EdgeInsets.zero,
+                          title: Text('Empty template'),
+                          subtitle: Text('Start from scratch with one status'),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

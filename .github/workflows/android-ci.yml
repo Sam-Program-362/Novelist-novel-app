@@ -40,7 +40,9 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Flutter version
-        run: flutter --version
+        run: |
+          flutter --version 2>&1 | tee /tmp/version.log
+          dart --version 2>&1 | tee -a /tmp/version.log
 
       # The wrapper is generated in an empty directory: running Gradle inside `app/android` would
       # configure the Flutter project, which needs `local.properties` that only exists after the
@@ -101,11 +103,11 @@ jobs:
           body=/tmp/failure.md
           {
             echo "CI failed for ${GITHUB_SHA}"
-            for name in wrapper analyze test build; do
+            for name in version analyze test build; do
               if [ -s "/tmp/$name.log" ]; then
                 echo
                 echo "### $name"
-                tail -c 4000 "/tmp/$name.log" | sed 's/`/'"'"'/g'
+                tail -c 40000 "/tmp/$name.log" | sed 's/`/'"'"'/g'
               fi
             done
           } > "$body"

@@ -25,8 +25,8 @@ void main() {
     });
 
     test('serializes embeds exactly like the reference', () {
-      final doc = TextDoc([
-        const TextBlock(
+      const doc = TextDoc([
+        TextBlock(
           align: 'center',
           text: 'Meet \uFFFC now',
           embeds: [TextEmbed(position: 5, code: 'abc12345', value: 'Irene')],
@@ -99,8 +99,8 @@ void main() {
     });
 
     test('word counting ignores object replacement characters', () {
-      final doc = TextDoc([
-        const TextBlock(
+      const doc = TextDoc([
+        TextBlock(
           text: '\uFFFC walked to \uFFFC.',
           embeds: [
             TextEmbed(position: 0, code: 'a', value: 'Tom'),

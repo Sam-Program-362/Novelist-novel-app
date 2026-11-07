@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/l10n/strings.dart';
-import '../../core/utils/colours.dart';
 import '../../state/app_settings.dart';
 import '../widgets/common.dart';
 

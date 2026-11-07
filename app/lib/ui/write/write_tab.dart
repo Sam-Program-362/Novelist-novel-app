@@ -49,7 +49,7 @@ class WriteTab extends StatelessWidget {
                   ),
                   title: Text(scene.title, maxLines: 1, overflow: TextOverflow.ellipsis),
                   subtitle: Text(
-                    '${scene.synopsis?.isNotEmpty == true ? scene.synopsis! : (status?.title ?? '')}',
+                    scene.synopsis?.isNotEmpty == true ? scene.synopsis! : (status?.title ?? ''),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/l10n/strings.dart';
-import '../../core/utils/colours.dart';
 import '../../models/entities.dart';
 import '../../state/project_controller.dart';
 import '../../core/utils/iterable_x.dart';
@@ -262,7 +261,7 @@ class _PlotTabState extends State<PlotTab> {
             ),
             for (final candidate in candidates)
               ListTile(
-                leading: StatusDot(colour: colourFromStored(0xFF9E9E9E)),
+                leading: StatusDot(colour: 0xFF9E9E9E),
                 title: Text(candidate.title),
                 onTap: () => Navigator.of(sheetContext).pop(candidate.id),
               ),

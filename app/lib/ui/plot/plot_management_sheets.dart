@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/l10n/strings.dart';
-import '../../models/entities.dart';
 import '../../state/project_controller.dart';
 import '../widgets/common.dart';
 
@@ -26,8 +25,6 @@ class _PlotManagementSheet extends StatefulWidget {
 }
 
 class _PlotManagementSheetState extends State<_PlotManagementSheet> {
-  late int _tab = widget.initialTab;
-
   @override
   Widget build(BuildContext context) {
     final controller = context.watch<ProjectController>();
@@ -56,7 +53,7 @@ class _PlotManagementSheetState extends State<_PlotManagementSheet> {
                 ),
               ),
               TabBar(
-                onTap: (index) => setState(() => _tab = index),
+                onTap: (index) => setState(() {}),
                 isScrollable: true,
                 tabAlignment: TabAlignment.start,
                 tabs: const [
