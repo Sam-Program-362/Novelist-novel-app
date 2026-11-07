@@ -4,7 +4,8 @@ Status of the standalone rebuild that lives in `app/`. "Parity" is judged agains
 `docs/FEATURE_PARITY_CHECKLIST.md`; everything marked **Implemented** has code in `app/lib` and a
 matching row in the schema, everything under *Gaps* is a deliberate, documented difference.
 
-Last updated with the first compiling milestone (sources complete, CI is the build environment).
+Last updated after the first fully green CI run: analyzer clean, 32 database-level tests passing and
+a release APK built on GitHub Actions.
 
 ## How to build and verify
 
@@ -17,7 +18,19 @@ flutter build apk --release
 ```
 
 CI (`.github/workflows/android-ci.yml`) runs exactly those steps on every push, so the analyzer and
-the test suite are the gate: a change that does not compile cannot land silently.
+the test suite are the gate: a change that does not compile cannot land silently. Verified locally
+only through CI, since this workspace has no Flutter/Dart SDK:
+
+| Tool | Version |
+| --- | --- |
+| Flutter / Dart | 3.47.9 / 3.13.7 (stable) |
+| Gradle | 8.14.3 (Flutter 3.47 minimum) |
+| Android Gradle Plugin | 8.11.1 |
+| Kotlin | 2.2.20 |
+| minSdk / compileSdk | 24 / 36 |
+
+The wrapper is generated out of tree by CI: running Gradle inside `app/android` before
+`local.properties` exists cannot configure the Flutter project.
 
 ## Modules
 
@@ -65,10 +78,14 @@ needed):
 | `nov_file_test.dart` | The reference `sample.nov` imports (categories, 23 items, 15 scenes, 5 chapters × 3 scenes, 3 subplots, mentions by alias code) and survives an export → import round trip; malformed and future-version files are rejected without touching the database. |
 | `project_flow_test.dart` | Template parsing, project creation, cascade deletes, the manuscript invariant (unattached scenes never compile, detaching keeps the scene, deleting a section keeps scenes), nested section flattening, scene ordering, split, and EPUB/ODT/HTML output structure (zip entries, `mimetype`, resolved mentions, alignment classes). |
 | `persistence_test.dart` | Data reaches disk across close/reopen, foreign keys stay enabled, newer schemas are refused, and a backup file restores intact. |
+| `editor_text_test.dart` | Smart-quote/guillemet/hyphen/ellipsis conversion and the guarantee that `@mention` tokens survive typography and become embeds. |
 
 ## Known follow-ups
 
 * Add widget tests for the library → project → editor navigation once the analyzer baseline is green.
-* Wrap the editor's `TextField` blocks in `Shortcuts`/`Actions` so `SmartTypography` substitutions
-  run on commit (the utility and both toggles exist, the binding does not yet).
+* Smart typography currently runs when a paragraph is **saved**, not as you type; the reference
+  corrects on commit, so this matches observable behaviour but is not character-by-character.
+* Editor mentions are typed as `@Label` tokens and converted to embeds on save. The reference shows
+  them as inline chips; a `TextField` cannot host arbitrary inline widgets, so the display differs
+  while the stored document is identical.
 * Add a translation table (ARB or a simple map) once the English strings are frozen.

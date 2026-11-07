@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import '../../core/l10n/strings.dart';
 import '../../core/utils/text_doc.dart';
+import '../../core/utils/typography.dart';
 import '../../models/entities.dart';
 import '../../state/app_settings.dart';
 import '../../state/project_controller.dart';
@@ -120,8 +121,20 @@ class _SceneEditorScreenState extends State<SceneEditorScreen> {
     final known = project.mentionLookup;
     final blocks = <TextBlock>[];
     for (final state in _blocks) {
+      // Smart typography runs when a paragraph is persisted (never mid-word), matching the
+      // reference's behaviour of correcting on commit.
+      final raw = state.controller.text;
+      final text = settings.autoCorrection
+          ? SmartTypography.apply(
+              raw,
+              smartQuotes: settings.smartQuotes,
+              smartGuillemets: settings.smartGuillemets,
+              smartHyphens: settings.smartHyphens,
+              smartEllipsis: settings.smartEllipsis,
+            )
+          : raw;
       blocks.add(TextDoc.blockFromEditable(
-        state.controller.text,
+        text,
         knownMentions: known,
         align: state.align,
       ));
