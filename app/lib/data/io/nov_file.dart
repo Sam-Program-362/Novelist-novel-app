@@ -287,7 +287,7 @@ class NovFile {
         final created = plot.addStatus(
           projectId: project.id,
           title: status['title']?.toString() ?? 'Status',
-          colour: colourFromStored((status['color'] as num?)?.toInt() ?? 0xFF9E9E9E),
+          colour: normaliseColour((status['color'] as num?)?.toInt() ?? 0xFF9E9E9E),
           code: code,
         );
         statusIdsByCode[code] = created.id;
@@ -306,7 +306,7 @@ class NovFile {
         final created = plot.addSubplot(
           projectId: project.id,
           title: subplot['title']?.toString() ?? 'Subplot',
-          colour: colourFromStored((subplot['color'] as num?)?.toInt() ?? 0xFF9E9E9E),
+          colour: normaliseColour((subplot['color'] as num?)?.toInt() ?? 0xFF9E9E9E),
           code: code,
         );
         subplotIdsByCode[code] = created.id;
@@ -323,7 +323,7 @@ class NovFile {
         final createdCategory = plot.createCategory(
           projectId: project.id,
           title: category['title']?.toString() ?? 'Category',
-          colour: colourFromStored((category['color'] as num?)?.toInt() ?? 0xFF9E9E9E),
+          colour: normaliseColour((category['color'] as num?)?.toInt() ?? 0xFF9E9E9E),
           code: categoryCode,
           ranking: (category['ranking'] as num?)?.toInt(),
         );
@@ -356,7 +356,7 @@ class NovFile {
               .addTag(
                 categoryId: createdCategory.id,
                 title: tag['title']?.toString() ?? 'Tag',
-                colour: colourFromStored((tag['color'] as num?)?.toInt() ?? 0xFF9E9E9E),
+                colour: normaliseColour((tag['color'] as num?)?.toInt() ?? 0xFF9E9E9E),
                 code: tagCode,
               )
               .id;

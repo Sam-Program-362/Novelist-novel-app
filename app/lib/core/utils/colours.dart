@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 /// The reference application stores colours as 32-bit ARGB integers, but inconsistently:
 /// system templates use signed values (e.g. `-8305804`) while user projects in `sample.nov`
 /// use unsigned ones (e.g. `4288423856`). Both are accepted and normalised here.
-Color colourFromStored(int value) => Color(value & 0xFFFFFFFF);
+Color colourFromStored(int value) => Color(normaliseColour(value));
+
+/// [colourFromStored] without the Flutter dependency: keeps the stored ARGB value unsigned.
+int normaliseColour(int value) => value & 0xFFFFFFFF;
 
 /// Palette offered by the colour picker (`pick_color`). Values are ARGB integers so they can be
 /// persisted without depending on Flutter's evolving `Color` API.
